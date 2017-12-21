@@ -14,7 +14,7 @@ if [ "$dataorigin" == "model" ] || [ "$dataorigin" == "satellite" ];
 then
   for i in `seq $timeinit $timeend`;
   do
-    nohup python trackeddy_$dataorigin.py $i > "${logdir}_${dataorigin}_nohup${i}.txt" &
+    nohup python trackeddy_$dataorigin.py $i > "${logdir}${dataorigin}_nohup${i}.txt" &
   done
 else
   echo "First argument (dataorigin) should be 'model' or 'satellite'"
