@@ -3,6 +3,7 @@
 
 # dataorigin should be 'model' or 'satellite'
 module load conda/analysis3
+module load openmpi/1.10.7
 dataorigin=$1
 timeinit=$2
 timeend=$3
@@ -14,7 +15,7 @@ if [ "$dataorigin" == "model" ] || [ "$dataorigin" == "satellite" ];
 then
   for i in `seq $timeinit $timeend`;
   do
-    nohup python trackeddy_$dataorigin.py $i > "${logdir}${dataorigin}_nohup${i}.txt" &
+    nohup  python trackeddy_$dataorigin.py $i > "${logdir}${dataorigin}_nohup${i}.txt" &
   done
 else
   echo "First argument (dataorigin) should be 'model' or 'satellite'"
