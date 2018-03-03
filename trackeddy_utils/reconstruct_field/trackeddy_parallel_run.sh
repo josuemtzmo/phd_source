@@ -1,10 +1,10 @@
 #!/bin/bash
 #PBS -q express
 #PBS -P v45
-#PBS -l ncpus=16
-#PBS -l mem=120Gb
-#PBS -l walltime=10:00:00
-#PBS -N eddyrecons
+#PBS -l ncpus=48
+#PBS -l mem=256Gb
+#PBS -l walltime=24:00:00
+#PBS -N Reddy
 
 module load netcdf/4.3.3.1
 module use /projects/v45/modules
@@ -16,5 +16,5 @@ cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/"
 
 cd $cdir
 
-#./trackeddy_jobasignment.sh model 306 345 'run'
-./trackeddy_jobasignment.sh model 306 322 'run'
+./trackeddy_jobasignment.sh model 306 345 'run'
+#./trackeddy_jobasignment.sh model 306 322 'run'

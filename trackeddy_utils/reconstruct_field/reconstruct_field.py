@@ -13,7 +13,7 @@ from trackeddy.plotfunc import *
 from numpy import *
 
 outputfilenumber=sys.argv[1]
-outfolder='/g/data/v45/jm5970/trackeddy_out/files_feb_incomplete/'
+outfolder='/g/data/v45/jm5970/trackeddy_out/'
 
 # Output data path
 outputpath='/g/data3/hh5/tmp/akm157/mom01v5_kds75/output'+outputfilenumber+'/'
@@ -26,12 +26,11 @@ lat=ncfile.variables['yt_ocean_sub01'][:]
 
 # Output data path
 analysedatap=np.load(outfolder+outputfilenumber+'_pos.npy')
-analysedatan=np.load(outfolder+outputfilenumber+'_neg.npy')
-
 dictanalysep=analysedatap.item()
-dictanalysen=analysedatan.item()
-
 reconstruct_p=reconstruct_syntetic(etashape,lon,lat,dictanalysep)
+
+analysedatan=np.load(outfolder+outputfilenumber+'_neg.npy')
+dictanalysen=analysedatan.item()
 reconstruct_n=reconstruct_syntetic(etashape,lon,lat,dictanalysen)
 
 reconstruct=reconstruct_p+reconstruct_n
@@ -41,3 +40,13 @@ plt.savefig(outfolder+'output/reconstructed_field_'+outputfilenumber+'.png')
 
 filename=outfolder+'output/reconstructed_field_'+outputfilenumber+'.nc'
 vargeonc(filename,lat,lon,reconstruct,shape(reconstruct)[0],'SSHa_reconstruct',nc_description='Reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
+
+#mask=ma.getmask(ncfile.variables['eta_t'][0,:,:])
+
+#u_eddy,v_eddy=geovelfield(reconstruct,lon,lat,mask,5)
+
+#EKE_eddy = KE(u_eddy,v_eddy)
+
+#filename=outfolder+'output/EKE_eddy'+outputfilenumber+'.nc'
+#vargeonc(filename,lat,lon,reconstruct,shape(reconstruct)[0],'EKE_eddy',nc_description='EKE_eddy using the  geostrophic velocity form the reconstructed field (Trackeddy).',units='m',dt='',dim='2D')
+
