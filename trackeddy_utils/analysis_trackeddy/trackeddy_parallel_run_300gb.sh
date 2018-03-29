@@ -9,16 +9,16 @@
 
 #PBS -q normalbw
 #PBS -P v45
-#PBS -l ncpus=16
-#PBS -l mem=150Gb
+#PBS -l ncpus=12
+#PBS -l mem=100Gb
 #PBS -l walltime=48:00:00
 #PBS -N Eeddy
 
 dataorigin='satellite'
-ini=1993
-end=1997
+ini=2000
+end=2003
 
-module load netcdf/4.3.3.1
+module load ne:wqtcdf/4.3.3.1
 module use /projects/v45/modules
 module load cmstools
 module use /g/data3/hh5/public/modules

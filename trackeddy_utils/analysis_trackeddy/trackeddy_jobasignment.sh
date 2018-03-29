@@ -29,12 +29,12 @@ then
       for m in `seq 0 $(( ${#months[@]}-2 ))`;
       do 
         echo "/g/data3/hh5/public/apps/miniconda3/envs/analysis3/bin/python ${cdir}trackeddy_$dataorigin.py $i ${months[$m]} ${months[$(($m+1))]} " > $cdir$rundir/config.$counter
-        echo "Running at $((i-timeinit)).  File: $cdir$rundir/config.$counter"
+        echo "Running year $((i)).  File: $cdir$rundir/config.$counter"
         pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$counter > $cdir$rundir/nohup.$counter &
         counter=$(( $counter + 1 ))
       done
-      wait
     done
+    wait
   fi
 else
   echo "First argument (dataorigin) should be 'model' or 'satellite'"
