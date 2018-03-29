@@ -1,0 +1,56 @@
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_field.py", line 22, in <module>
+    reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+KeyError: 'SSHa_reconstruct'

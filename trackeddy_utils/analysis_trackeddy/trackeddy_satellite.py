@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('agg')
 from calendar import monthrange
 import sys
 from netCDF4 import Dataset

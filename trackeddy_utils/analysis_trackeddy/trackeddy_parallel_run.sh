@@ -1,10 +1,22 @@
 #!/bin/bash
-#PBS -q express
+
+#if [ "$dataorigin" == "model" ];
+#then
+#  ncp=$(($end-$ini))
+#else
+#  ncp=$((($end-$ini)*4))
+#fi
+
+#PBS -q normalbw
 #PBS -P v45
-#PBS -l ncpus=80
-#PBS -l mem=100Gb
-#PBS -l walltime=07:00:00
-#PBS -N extract_eddy_trackeddy
+#PBS -l ncpus=16
+#PBS -l mem=150Gb
+#PBS -l walltime=48:00:00
+#PBS -N Eeddy
+
+dataorigin='satellite'
+ini=1993
+end=1997
 
 module load netcdf/4.3.3.1
 module use /projects/v45/modules
@@ -16,4 +28,12 @@ cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/"
 
 cd $cdir
 
-./trackeddy_jobasignment.sh model 306 345 'run'
+if [ "$dataorigin" == "model" ];
+then 
+  ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_model'
+elif [ "$dataorigin" == "satellite" ];
+then
+  ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_satel'
+else
+  echo "First argument (dataorigin) should be 'model' or 'satellite'"
+fi
