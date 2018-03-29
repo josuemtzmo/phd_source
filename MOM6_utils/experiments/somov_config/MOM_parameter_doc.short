@@ -1,0 +1,188 @@
+! This file was written by the model and records the non-default parameters used at run-time.
+
+! === module MOM ===
+THICKNESSDIFFUSE = True         !   [Boolean] default = False
+                                ! If true, interface heights are diffused with a
+                                ! coefficient of KHTH.
+THICKNESSDIFFUSE_FIRST = True   !   [Boolean] default = False
+                                ! If true, do thickness diffusion before dynamics.
+                                ! This is only used if THICKNESSDIFFUSE is true.
+DT = 3600.0                     !   [s]
+                                ! The (baroclinic) dynamics time step.  The time-step that
+                                ! is actually used will be an integer fraction of the
+                                ! forcing time-step (DT_FORCING in ocean-only mode or the
+                                ! coupling timestep in coupled mode.)
+DT_THERM = 7200.0               !   [s] default = 3600.0
+                                ! The thermodynamic and tracer advection time step.
+                                ! Ideally DT_THERM should be an integer multiple of DT
+                                ! and less than the forcing or coupling time-step, unless
+                                ! THERMO_SPANS_COUPLING is true, in which case DT_THERM
+                                ! can be an integer multiple of the coupling timestep.  By
+                                ! default DT_THERM is set to DT.
+MIN_Z_DIAG_INTERVAL = 2.16E+04  !   [s] default = 0.0
+                                ! The minimum amount of time in seconds between
+                                ! calculations of depth-space diagnostics. Making this
+                                ! larger than DT_THERM reduces the  performance penalty
+                                ! of regridding to depth online.
+DTBT_RESET_PERIOD = 0.0         !   [s] default = 7200.0
+                                ! The period between recalculations of DTBT (if DTBT <= 0).
+                                ! If DTBT_RESET_PERIOD is negative, DTBT is set based
+                                ! only on information available at initialization.  If
+                                ! dynamic, DTBT will be set at least every forcing time
+                                ! step, and if 0, every dynamics time step.  The default is
+                                ! set by DT_THERM.  This is only used if SPLIT is true.
+FRAZIL = True                   !   [Boolean] default = False
+                                ! If true, water freezes if it gets too cold, and the
+                                ! the accumulated heat deficit is returned in the
+                                ! surface state.  FRAZIL is only used if
+                                ! ENABLE_THERMODYNAMICS is true.
+DO_GEOTHERMAL = True            !   [Boolean] default = False
+                                ! If true, apply geothermal heating.
+BOUND_SALINITY = True           !   [Boolean] default = False
+                                ! If true, limit salinity to being positive. (The sea-ice
+                                ! model may ask for more salt than is available and
+                                ! drive the salinity negative otherwise.)
+C_P = 3925.0                    !   [J kg-1 K-1] default = 3991.86795711963
+                                ! The heat capacity of sea water, approximated as a
+                                ! constant. This is only used if ENABLE_THERMODYNAMICS is
+                                ! true. The default value is from the TEOS-10 definition
+                                ! of conservative temperature.
+SAVE_INITIAL_CONDS = True       !   [Boolean] default = False
+                                ! If true, write the initial conditions to a file given
+                                ! by IC_OUTPUT_FILE.
+
+! === module MOM_domains ===
+REENTRANT_X = False             !   [Boolean] default = True
+                                ! If true, the domain is zonally reentrant.
+NIGLOBAL = 23                   !
+                                ! The total number of thickness grid points in the
+                                ! x-direction in the physical domain. With STATIC_MEMORY_
+                                ! this is set in MOM_memory.h at compile time.
+NJGLOBAL = 14                   !
+                                ! The total number of thickness grid points in the
+                                ! y-direction in the physical domain. With STATIC_MEMORY_
+                                ! this is set in MOM_memory.h at compile time.
+
+! === module MOM_hor_index ===
+! Sets the horizontal array index types.
+
+! === module MOM_verticalGrid ===
+! Parameters providing information about the vertical grid.
+NK = 63                         !   [nondim]
+                                ! The number of model layers.
+
+! === module MOM_fixed_initialization ===
+INPUTDIR = "INPUT"              ! default = "."
+                                ! The directory in which input files are found.
+
+! === module MOM_grid_init ===
+GRID_CONFIG = "mosaic"          !
+                                ! A character string that determines the method for
+                                ! defining the horizontal grid.  Current options are:
+                                !     mosaic - read the grid from a mosaic (supergrid)
+                                !              file set by GRID_FILE.
+                                !     cartesian - use a (flat) Cartesian grid.
+                                !     spherical - use a simple spherical grid.
+                                !     mercator - use a Mercator spherical grid.
+GRID_FILE = "ocean_hgrid.nc"    !
+                                ! Name of the file from which to read horizontal grid data.
+TOPO_CONFIG = "file"            !
+                                ! This specifies how bathymetry is specified:
+                                !     file - read bathymetric information from the file
+                                !       specified by (TOPO_FILE).
+                                !     flat - flat bottom set to MAXIMUM_DEPTH.
+                                !     bowl - an analytically specified bowl-shaped basin
+                                !       ranging between MAXIMUM_DEPTH and MINIMUM_DEPTH.
+                                !     spoon - a similar shape to 'bowl', but with an vertical
+                                !       wall at the southern face.
+                                !     halfpipe - a zonally uniform channel with a half-sine
+                                !       profile in the meridional direction.
+                                !     benchmark - use the benchmark test case topography.
+                                !     Neverland - use the Neverland test case topography.
+                                !     DOME - use a slope and channel configuration for the
+                                !       DOME sill-overflow test case.
+                                !     ISOMIP - use a slope and channel configuration for the
+                                !       ISOMIP test case.
+                                !     DOME2D - use a shelf and slope configuration for the
+                                !       DOME2D gravity current/overflow test case.
+                                !     Kelvin - flat but with rotated land mask.
+                                !     seamount - Gaussian bump for spontaneous motion test case.
+                                !     shelfwave - exponential slope for shelfwave test case.
+                                !     supercritical - flat but with 8.95 degree land mask.
+                                !     Phillips - ACC-like idealized topography used in the Phillips config.
+                                !     dense - Denmark Strait-like dense water formation and overflow.
+                                !     USER - call a user modified routine.
+MAXIMUM_DEPTH = 6000.0          !   [m]
+                                ! The maximum depth of the ocean.
+MINIMUM_DEPTH = 0.5             !   [m] default = 0.0
+                                ! If MASKING_DEPTH is unspecified, then anything shallower than
+                                ! MINIMUM_DEPTH is assumed to be land and all fluxes are masked out.
+                                ! If MASKING_DEPTH is specified, then all depths shallower than
+                                ! MINIMUM_DEPTH but deeper than MASKING_DEPTH are rounded to MINIMUM_DEPTH.
+
+! === module MOM_open_boundary ===
+! Controls where open boundaries are located, what kind of boundary condition to impose, and what data to apply, if any.
+CHANNEL_CONFIG = "global_1deg"  ! default = "none"
+                                ! A parameter that determines which set of channels are
+                                ! restricted to specific  widths.  Options are:
+                                !     none - All channels have the grid width.
+                                !     global_1deg - Sets 16 specific channels appropriate
+                                !       for a 1-degree model, as used in CM2G.
+                                !     list - Read the channel locations and widths from a
+                                !       text file, like MOM_channel_list in the MOM_SIS
+                                !       test case.
+                                !     file - Read open face widths everywhere from a
+                                !       NetCDF file on the model grid.
+
+! === module MOM_tracer_registry ===
+
+! === module MOM_EOS ===
+
+! === module MOM_restart ===
+
+! === module MOM_tracer_flow_control ===
+USE_IDEAL_AGE_TRACER = True     !   [Boolean] default = False
+                                ! If true, use the ideal_age_example tracer package.
+USE_OCMIP2_CFC = True           !   [Boolean] default = False
+                                ! If true, use the MOM_OCMIP2_CFC tracer package.
+
+! === module ideal_age_example ===
+
+! === module MOM_OCMIP2_CFC ===
+
+! === module MOM_coord_initialization ===
+COORD_CONFIG = "file"           !
+                                ! This specifies how layers are to be defined:
+                                !     ALE or none - used to avoid defining layers in ALE mode
+                                !     file - read coordinate information from the file
+                                !       specified by (COORD_FILE).
+                                !     BFB - Custom coords for buoyancy-forced basin case
+                                !       based on SST_S, T_BOT and DRHO_DT.
+                                !     linear - linear based on interfaces not layers
+                                !     layer_ref - linear based on layer densities
+                                !     ts_ref - use reference temperature and salinity
+                                !     ts_range - use range of temperature and salinity
+                                !       (T_REF and S_REF) to determine surface density
+                                !       and GINT calculate internal densities.
+                                !     gprime - use reference density (RHO_0) for surface
+                                !       density and GINT calculate internal densities.
+                                !     ts_profile - use temperature and salinity profiles
+                                !       (read from COORD_FILE) to set layer densities.
+                                !     USER - call a user modified routine.
+COORD_FILE = "GOLD_IC.2010.11.15.nc" !
+                                ! The file from which the coordinate densities are read.
+
+! === module MOM_grid ===
+! Parameters providing information about the lateral grid.
+
+! === module MOM_state_initialization ===
+INIT_LAYERS_FROM_Z_FILE = True  !   [Boolean] default = False
+                                ! If true, intialize the layer thicknesses, temperatures,
+                                ! and salnities from a Z-space file on a latitude-
+                                ! longitude grid.
+
+! === module MOM_initialize_layers_from_Z ===
+TEMP_SALT_Z_INIT_FILE = "WOA05_pottemp_salt.nc" ! default = "temp_salt_z.nc"
+                                ! The name of the z-space input file used to initialize
+                                ! temperatures (T) and salinities (S). If T and S are not
+                                ! in the same file, TEMP_Z_INIT_FILE and SALT_Z_INIT_FILE
