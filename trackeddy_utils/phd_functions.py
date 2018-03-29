@@ -20,8 +20,8 @@ def sat_seasonal_variation(year,monthsin,monthsend,areamap='',plot=True,hemisphe
     for ii in range(len(monthsin)):
         #print('File:',monthsin[ii])
         ufilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/ssha_u_satellite_'+str(year)+'_'+str(monthsin[ii])+'yrs.nc')
-        lon=ufilename.variables['Longitude'][:]
-        lat=ufilename.variables['Latitude'][:]
+        lon=ufilename.variables['lon'][:]
+        lat=ufilename.variables['lat'][:]
         #print(len(lon),len(lat))
         if areamap=='':
             areamap=np.array([[0,len(lon)],[0,len(lat)]])
@@ -98,8 +98,8 @@ def sim_seasonal_variation(fileinit,fileend,areamap='',plot=True,hemisphere='',d
     eke_mean=np.zeros(days)
     for ii in range(fileinit,fileend):
         ufilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/ssha_'+str(ii)+'_u_1yrs.nc')
-        lon=ufilename.variables['Longitude'][:]
-        lat=ufilename.variables['Latitude'][:]
+        lon=ufilename.variables['lon'][:]
+        lat=ufilename.variables['lat'][:]
         #print(len(lon),len(lat))
         if areamap=='':
             areamap=np.array([[0,len(lon)],[0,len(lat)]])
@@ -172,9 +172,9 @@ def seasonal_variation_EKEE(fileinit,fileend,areamap='',plot=True,hemisphere='',
         days=365
     eke_mean=np.zeros(days)
     for ii in range(fileinit,fileend):
-        ufilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/'+str(ii)+'_u_prime_eddy_1yrs.nc')
-        lon=ufilename.variables['Longitude'][:]
-        lat=ufilename.variables['Latitude'][:]
+        ufilename=Dataset('/home/156/jm5970/github/trackeddy/data.input/'+str(ii)+'_u_prime_eddy_1yrs.nc')
+        lon=ufilename.variables['lon'][:]
+        lat=ufilename.variables['lat'][:]
         #print(len(lon),len(lat))
         if areamap=='':
             areamap=np.array([[0,len(lon)],[0,len(lat)]])
@@ -182,7 +182,7 @@ def seasonal_variation_EKEE(fileinit,fileend,areamap='',plot=True,hemisphere='',
         lat=lat[areamap[1,0]:areamap[1,1]]
         
         u_prime=np.squeeze(ufilename.variables['U'][:,areamap[1,0]:areamap[1,1],areamap[0,0]:areamap[0,1]])
-        vfilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/'+str(ii)+'_v_prime_eddy_1yrs.nc')
+        vfilename=Dataset('/home/156/jm5970/github/trackeddy/data.input/'+str(ii)+'_v_prime_eddy_1yrs.nc')
         v_prime=np.squeeze(vfilename.variables['V'][:,areamap[1,0]:areamap[1,1],areamap[0,0]:areamap[0,1]])
 
         eke=np.zeros([np.shape(v_prime)[0],np.shape(v_prime)[1],np.shape(v_prime)[2]])
@@ -245,9 +245,9 @@ def seasonal_variation_EKE(fileinit,fileend,areamap='',plot=True,hemisphere='',d
         days=365
     eke_mean=np.zeros(days)
     for ii in range(fileinit,fileend):
-        ufilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/ssha_'+str(ii)+'_u_1yrs.nc')
-        lon=ufilename.variables['Longitude'][:]
-        lat=ufilename.variables['Latitude'][:]
+        ufilename=Dataset('/home/156/jm5970/github/trackeddy/data.input/ssha_'+str(ii)+'_u_1yrs.nc')
+        lon=ufilename.variables['lon'][:]
+        lat=ufilename.variables['lat'][:]
         #print(len(lon),len(lat))
         if areamap=='':
             areamap=np.array([[0,len(lon)],[0,len(lat)]])
@@ -255,10 +255,10 @@ def seasonal_variation_EKE(fileinit,fileend,areamap='',plot=True,hemisphere='',d
         lat=lat[areamap[1,0]:areamap[1,1]]
         
         u=np.squeeze(ufilename.variables['U'][:,areamap[1,0]:areamap[1,1],areamap[0,0]:areamap[0,1]])
-        vfilename=Dataset('/home/156/jm5970/notebooks/traceddy/data.input/ssha_'+str(ii)+'_v_1yrs.nc')
+        vfilename=Dataset('/home/156/jm5970/github/trackeddy/data.input/ssha_'+str(ii)+'_v_1yrs.nc')
         v=np.squeeze(vfilename.variables['V'][:,areamap[1,0]:areamap[1,1],areamap[0,0]:areamap[0,1]])
 
-        eke=np.zeros([np.shape(v_prime)[0],np.shape(v)[1],np.shape(v)[2]])
+        eke=np.zeros([np.shape(v)[0],np.shape(v)[1],np.shape(v)[2]])
         for tt in range(0,np.shape(v)[0]):
             eke_c=np.array(KE(u[tt,:,:],v[tt,:,:]))
             eke_mean[index]=np.nanmean(eke_c)
@@ -318,9 +318,9 @@ def seasonal_variation_EKEB(fileinit,fileend,areamap='',plot=True,hemisphere='',
         days=365
     eke_mean=np.zeros(days)
     for ii in range(fileinit,fileend): 
-        ufilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/ssha_'+str(ii)+'_u_1yrs.nc')
-        lon=ufilename.variables['Longitude'][:]
-        lat=ufilename.variables['Latitude'][:]
+        ufilename=Dataset('/home/156/jm5970/github/trackeddy/data.input/ssha_'+str(ii)+'_u_1yrs.nc')
+        lon=ufilename.variables['lon'][:]
+        lat=ufilename.variables['lat'][:]
         #print(len(lon),len(lat))
         if areamap=='':
             areamap=np.array([[0,len(lon)],[0,len(lat)]])
@@ -328,12 +328,12 @@ def seasonal_variation_EKEB(fileinit,fileend,areamap='',plot=True,hemisphere='',
         lat=lat[areamap[1,0]:areamap[1,1]]
         
         u=np.squeeze(ufilename.variables['U'][:,areamap[1,0]:areamap[1,1],areamap[0,0]:areamap[0,1]])
-        vfilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/ssha_'+str(ii)+'_v_1yrs.nc')
+        vfilename=Dataset('/home/156/jm5970/github/trackeddy/data.input/ssha_'+str(ii)+'_v_1yrs.nc')
         v=np.squeeze(vfilename.variables['V'][:,areamap[1,0]:areamap[1,1],areamap[0,0]:areamap[0,1]])
         
-        ufilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/'+str(ii)+'_u_prime_eddy_1yrs.nc')
+        ufilename=Dataset('/home/156/jm5970/github/trackeddy/data.input/'+str(ii)+'_u_prime_eddy_1yrs.nc')
         u_prime=np.squeeze(ufilename.variables['U'][:,areamap[1,0]:areamap[1,1],areamap[0,0]:areamap[0,1]])
-        vfilename=Dataset('/home/156/jm5970/notebooks/trackeddy/data.input/'+str(ii)+'_v_prime_eddy_1yrs.nc')
+        vfilename=Dataset('/home/156/jm5970/github/trackeddy/data.input/'+str(ii)+'_v_prime_eddy_1yrs.nc')
         v_prime=np.squeeze(vfilename.variables['V'][:,areamap[1,0]:areamap[1,1],areamap[0,0]:areamap[0,1]])
         
         eke=np.zeros([np.shape(v_prime)[0],np.shape(v_prime)[1],np.shape(v_prime)[2]])
