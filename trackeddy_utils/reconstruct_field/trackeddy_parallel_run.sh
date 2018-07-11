@@ -1,7 +1,7 @@
 #!/bin/bash
-#PBS -q express
+#PBS -q expressbw
 #PBS -P v45
-#PBS -l ncpus=48
+#PBS -l ncpus=28
 #PBS -l mem=256Gb
 #PBS -l walltime=24:00:00
 #PBS -N Reddy
@@ -16,5 +16,5 @@ cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/"
 
 cd $cdir
 
-./trackeddy_jobasignment.sh model 306 345 'run'
+./trackeddy_jobasignment.sh model 306 334 'run'
 #./trackeddy_jobasignment.sh model 306 322 'run'

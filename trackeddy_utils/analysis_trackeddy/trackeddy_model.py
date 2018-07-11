@@ -29,19 +29,16 @@ lat=ncfile.variables['yt_ocean_sub01'][:]
 ncfile=Dataset('/g/data/v45/jm5970/data.input/meanssh_10yrs_AEXP.nc')
 ssh_mean=squeeze(ncfile.variables['SSH_mean'][:])
 # Import geographic coordinates (Lon,Lat)
-lon=ncfile.variables['Longitude'][:]
-lat=ncfile.variables['Latitude'][:]
+#lon=ncfile.variables['Longitude'][:]
+#lat=ncfile.variables['Latitude'][:]
 
 areamap=array([[0,len(lon)],[0,len(lat)]])
 
-eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,25,5,5,data_meant=ssh_mean,areamap=areamap,mask=''\
-                     ,destdir='',physics='',diagnostics=False,pprint=False)
+eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,20,1,1,data_meant=ssh_mean,areamap=areamap,mask=''\
+                     ,destdir='',physics='',diagnostics=False,pprint=False,sfilter='uniform')
 save(outfile+outputfilenumber+'_pos.npy',eddytd)
 
-eddytd=''
-
-eddytdn=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,-25,-5,-5,data_meant=ssh_mean,areamap='',mask=''\
-                     ,destdir='',physics='',diagnostics=False,pprint=False)
+eddytdn=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,-20,-1,-1,data_meant=ssh_mean,areamap='',mask=''\
+                     ,destdir='',physics='',diagnostics=False,pprint=False,sfilter='uniform')
 save(outfile+outputfilenumber+'_neg.npy',eddytdn)
 
-eddytdn=''

@@ -1,5 +1,4 @@
-pbsdsh: spawned task 0x00000000 on logical node 25 event 2
+main: spawned task 0x00000000 on logical node 25 event 2
 pbsdsh: waiting on 1 spawned and 0 obits
 pbsdsh: waiting on 0 spawned and 1 obits
-pbsdsh: waiting on 0 spawned and 1 obits
-pbsdsh: killing task 0x0400000A signal 15
+pbsdsh: task 0x00000000 exit status 0
