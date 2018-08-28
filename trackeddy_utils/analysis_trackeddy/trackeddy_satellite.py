@@ -12,8 +12,6 @@ from trackeddy.init import *
 from trackeddy.physics import *
 from trackeddy.plotfunc import *
 from numpy import *
-import matplotlib
-matplotlib.use('agg')
 
 year=sys.argv[1]
 monthsin=int(sys.argv[2])
@@ -42,16 +40,24 @@ for month in range(monthsin,monthsend):
     daysmonth=monthrange(int(year), month)[1]
     for days in range(1,daysmonth+1):
         ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%daysmonth+'_20170110.nc')
-        sshatime[ii,:,:]=squeeze(ncfile.variables['sla'][:])*100
+        sshatime[ii,:,:]=squeeze(ncfile.variables['sla'][:])
         ii=ii+1
+sshatime=ma.masked_where(sshatime <= -2147483647, sshatime)
 print('End loading data')
 
-areamap=array([[0,len(lon)],[0,len(lat)]])
+#areamap=array([[0,len(lon)],[0,len(lat)]])
+areamap=array([[0,len(lon)],[0,int(len(lat)/3)]])
 
-eddytd=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,25,5,5,data_meant='',areamap=areamap,mask=''\
-                     ,destdir='',physics='',diagnostics=False,pprint=False)
+
+eddytd=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,sshatime.max(),0.01,0.01,data_meant='',areamap=areamap,mask=''\
+                     #,eccenfit=0.85,gaussrsquarefit=0.9,ellipsrsquarefit=0.9\
+                     ,sfilter='uniform',sfsize=50,destdir='',physics='',diagnostics=False,pprint=False)
+print("Saving Positive")
 save(outfile+year+str(monthsin)+'-'+str(monthsend)+'_pos_satellite.npy',eddytd)
 
-eddytdn=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,-25,-5,-5,data_meant='',areamap='',mask=''\
-                     ,destdir='',physics='',diagnostics=False,pprint=False)
-save(outfile+year+str(monthsin)+'-'+str(monthsend)+'_neg_satellite.npy',eddytdn)
+#eddytdn=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,sshatime.min(),-0.01,-0.01,data_meant='',areamap=areamap,mask=''\
+                     #,eccenfit=0.85,gaussrsquarefit=0.9,ellipsrsquarefit=0.9\
+                     #,eccenfit=1,gaussrsquarefit=0,ellipsrsquarefit=0\
+#                     ,sfilter='uniform',sfsize=50,destdir='',physics='',diagnostics=False,pprint=False)
+#print("Saving Negative")
+#save(outfile+year+str(monthsin)+'-'+str(monthsend)+'_neg_satellite.npy',eddytdn)

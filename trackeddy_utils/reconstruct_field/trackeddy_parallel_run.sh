@@ -1,11 +1,21 @@
 #!/bin/bash
+
 #PBS -q expressbw
 #PBS -P v45
-#PBS -l ncpus=28
-#PBS -l mem=256Gb
-#PBS -l walltime=24:00:00
+#PBS -l ncpus=140
+#PBS -l mem=200Gb
+#PBS -l walltime=10:00:00
 #PBS -N Reddy
 
+dataorigin='satellite'
+ini=1993
+end=2017
+
+#dataorigin='model'
+#ini=306
+#end=334
+
+module load pbs
 module load netcdf/4.3.3.1
 module use /projects/v45/modules
 module load cmstools
@@ -16,5 +26,12 @@ cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/"
 
 cd $cdir
 
-./trackeddy_jobasignment.sh model 306 334 'run'
-#./trackeddy_jobasignment.sh model 306 322 'run'
+if [ "$dataorigin" == "model" ];
+then
+  ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_model'
+elif [ "$dataorigin" == "satellite" ];
+then
+  ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_satel'
+else
+  echo "First argument (dataorigin) should be 'model' or 'satellite'"
+fi

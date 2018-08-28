@@ -1,0 +1,230 @@
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/reconstruct_satellite.py", line 31, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20170110.nc')
+  File "netCDFTraceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/reconstruct_satellite.py", line 31, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20170110.nc')
+  File "netCDFTraceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/reconstruct_satellite.py", line 31, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20170110.nc')
+  File "netCDFTraceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/reconstruct_satellite.py", line 31, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20170110.nc')
+  File "netCDFTraceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/reconstruct_satellite.py", line 31, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20170110.nc')
+  File "netCDF4/_netCDF4.pyx", line 2015, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1636, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v3-0/2017/dt_global_allsa4/_netCDF4.pyx", line 2015, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1636, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v3-0/2017/dt_global_allsa4/_netCDF4.pyx", line 2015, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1636, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v3-0/2017/dt_global_allsa4/_netCDF4.pyx", line 2015, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1636, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v3-0/2017/dt_global_allsa4/_netCDF4.pyx", line 2015, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1636, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v3-0/2017/dt_global_allsat_phy_l4_20170101_20170110.nc'
+t_phy_l4_20170101_20170110.nc'
+t_phy_l4_20170101_20170110.nc'
+t_phy_l4_20170101_20170110.nc'
+t_phy_l4_20170101_20170110.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/reconstruct_satellite.py", line 31, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20170110.nc')
+  File "netCDF4/_netCDF4.pyx", line 2015, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1636, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v3-0/2017/dt_global_allsat_phy_l4_20170101_20170110.nc'
+
+------------------------------------------------------------------------
+Job 9581151.r-man2 has exceeded memory allocation on node r3768
+Process "bash", pid 24833, rss 1417216, vmem 9687040
+Process "pbs_demux", pid 24839, rss 753664, vmem 12996608
+Process "9581151.r-man2.", pid 24860, rss 1417216, vmem 9469952
+Process "trackeddy_jobas", pid 24887, rss 1470464, vmem 13672448
+Process "pbsdsh", pid 24895, rss 729088, vmem 17690624
+Process "pbsdsh", pid 24896, rss 729088, vmem 17690624
+Process "bash", pid 24897, rss 1142784, vmem 9687040
+Process "pbsdsh", pid 24899, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24900, rss 724992, vmem 17690624
+Process "pbsdsh", pid 24901, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24905, rss 729088, vmem 17690624
+Process "bash", pid 24908, rss 1138688, vmem 9687040
+Process "python", pid 24910, rss 1528799232, vmem 3047186432
+Process "pbsdsh", pid 24911, rss 724992, vmem 17690624
+Process "pbsdsh", pid 24912, rss 729088, vmem 17690624
+Process "pbsdsh", pid 24916, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24918, rss 733184, vmem 17690624
+Process "bash", pid 24919, rss 1142784, vmem 9687040
+Process "python", pid 24920, rss 1485824000, vmem 3004309504
+Process "pbsdsh", pid 24922, rss 729088, vmem 17690624
+Process "pbsdsh", pid 24923, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24927, rss 724992, vmem 17690624
+Process "pbsdsh", pid 24931, rss 724992, vmem 17690624
+Process "bash", pid 24932, rss 1142784, vmem 9687040
+Process "python", pid 24951, rss 1556680704, vmem 3075256320
+Process "pbsdsh", pid 24952, rss 724992, vmem 17690624
+Process "pbsdsh", pid 24953, rss 729088, vmem 17690624
+Process "pbsdsh", pid 24957, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24958, rss 733184, vmem 17690624
+Process "bash", pid 24961, rss 1142784, vmem 9687040
+Process "python", pid 24963, rss 1521790976, vmem 3040313344
+Process "pbsdsh", pid 24964, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24965, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24966, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24970, rss 729088, vmem 17690624
+Process "bash", pid 24972, rss 1142784, vmem 9687040
+Process "pbsdsh", pid 24973, rss 729088, vmem 17690624
+Process "python", pid 24975, rss 1534050304, vmem 3052445696
+Process "pbsdsh", pid 24978, rss 724992, vmem 17690624
+Process "pbsdsh", pid 24982, rss 733184, vmem 17690624
+Process "bash", pid 24984, rss 1142784, vmem 9687040
+Process "python", pid 24986, rss 1538334720, vmem 3056840704
+Process "pbsdsh", pid 24987, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24988, rss 729088, vmem 17690624
+Process "pbsdsh", pid 24989, rss 733184, vmem 17690624
+Process "pbsdsh", pid 24990, rss 729088, vmem 17690624
+Process "pbsdsh", pid 24995, rss 729088, vmem 17690624
+Process "pbsdsh", pid 24996, rss 733184, vmem 17690624
+Process "bash", pid 24998, rss 1142784, vmem 9687040
+Process "python", pid 25000, rss 1506238464, vmem 3024650240
+Process "pbsdsh", pid 25001, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25002, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25006, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25007, rss 733184, vmem 17690624
+Process "bash", pid 25010, rss 1142784, vmem 9687040
+Process "python", pid 25012, rss 1530200064, vmem 3048701952
+Process "pbsdsh", pid 25013, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25015, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25020, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25021, rss 729088, vmem 17690624
+Process "bash", pid 25022, rss 1142784, vmem 9687040
+Process "python", pid 25024, rss 1521913856, vmem 3040366592
+Process "pbsdsh", pid 25025, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25027, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25031, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25033, rss 729088, vmem 17690624
+Process "python", pid 25034, rss 1556144128, vmem 3074572288
+Process "bash", pid 25035, rss 1142784, vmem 9687040
+Process "pbsdsh", pid 25038, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25039, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25045, rss 729088, vmem 17690624
+Process "bash", pid 25047, rss 1142784, vmem 9687040
+Process "pbsdsh", pid 25048, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25050, rss 729088, vmem 17690624
+Process "python", pid 25051, rss 1523212288, vmem 3041722368
+Process "pbsdsh", pid 25052, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25056, rss 729088, vmem 17690624
+Process "bash", pid 25059, rss 1142784, vmem 9687040
+Process "python", pid 25061, rss 2704580608, vmem 4746567680
+Process "pbsdsh", pid 25062, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25063, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25064, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25066, rss 729088, vmem 17690624
+Process "bash", pid 25070, rss 1142784, vmem 9687040
+Process "pbsdsh", pid 25071, rss 729088, vmem 17690624
+Process "python", pid 25073, rss 1531392000, vmem 3049959424
+Process "pbsdsh", pid 25074, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25076, rss 724992, vmem 17690624
+Process "pbsdsh", pid 25080, rss 724992, vmem 17690624
+Process "bash", pid 25082, rss 1138688, vmem 9687040
+Process "python", pid 25084, rss 1524908032, vmem 3043348480
+Process "pbsdsh", pid 25085, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25088, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25091, rss 729088, vmem 17690624
+Process "bash", pid 25092, rss 1142784, vmem 9687040
+Process "python", pid 25094, rss 1528291328, vmem 3046563840
+Process "pbsdsh", pid 25095, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25097, rss 724992, vmem 17690624
+Process "pbsdsh", pid 25100, rss 724992, vmem 17690624
+Process "bash", pid 25103, rss 1142784, vmem 9687040
+Process "python", pid 25105, rss 1559355392, vmem 3077980160
+Process "pbsdsh", pid 25106, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25107, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25111, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25113, rss 733184, vmem 17690624
+Process "bash", pid 25115, rss 1142784, vmem 9687040
+Process "python", pid 25117, rss 1541103616, vmem 3059482624
+Process "pbsdsh", pid 25118, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25119, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25123, rss 729088, vmem 17690624
+Process "bash", pid 25125, rss 1142784, vmem 9687040
+Process "python", pid 25127, rss 1527304192, vmem 3045818368
+Process "pbsdsh", pid 25128, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25129, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25132, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25135, rss 729088, vmem 17690624
+Process "bash", pid 25137, rss 1142784, vmem 9687040
+Process "python", pid 25139, rss 1501282304, vmem 3019776000
+Process "pbsdsh", pid 25140, rss 729088, vmem 17690624
+Process "bash", pid 25147, rss 1142784, vmem 9687040
+Process "python", pid 25149, rss 1527459840, vmem 3045933056
+Process "pbsdsh", pid 25150, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25151, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25156, rss 729088, vmem 17690624
+Process "bash", pid 25158, rss 1142784, vmem 9687040
+Process "python", pid 25160, rss 1528549376, vmem 3047034880
+Process "pbsdsh", pid 25161, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25162, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25167, rss 733184, vmem 17690624
+Process "bash", pid 25168, rss 1142784, vmem 9687040
+Process "python", pid 25170, rss 1552588800, vmem 3071135744
+Process "pbsdsh", pid 25171, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25174, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25176, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25178, rss 729088, vmem 17690624
+Process "python", pid 25182, rss 1531842560, vmem 3050397696
+Process "pbsdsh", pid 25183, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25184, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25187, rss 724992, vmem 17690624
+Process "pbsdsh", pid 25190, rss 724992, vmem 17690624
+Process "pbsdsh", pid 25192, rss 729088, vmem 17690624
+Process "bash", pid 25193, rss 1142784, vmem 9687040
+Process "pbsdsh", pid 25196, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25198, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25201, rss 729088, vmem 17690624
+Process "bash", pid 25203, rss 1142784, vmem 9687040
+Process "python", pid 25205, rss 1499144192, vmem 3017572352
+Process "pbsdsh", pid 25206, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25208, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25212, rss 733184, vmem 17690624
+Process "bash", pid 25214, rss 1142784, vmem 9687040
+Process "python", pid 25216, rss 1525891072, vmem 3044392960
+Process "pbsdsh", pid 25218, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25222, rss 733184, vmem 17690624
+Process "bash", pid 25224, rss 1142784, vmem 9687040
+Process "python", pid 25226, rss 1525342208, vmem 3043835904
+Process "pbsdsh", pid 25228, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25233, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25235, rss 729088, vmem 17690624
+Process "python", pid 25236, rss 1553702912, vmem 3072311296
+Process "pbsdsh", pid 25237, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25238, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25239, rss 724992, vmem 17690624
+Process "pbsdsh", pid 25240, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25243, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25244, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25245, rss 724992, vmem 17690624
+Process "pbsdsh", pid 25246, rss 724992, vmem 17690624
+Process "pbsdsh", pid 25247, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25249, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25251, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25253, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25254, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25255, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25257, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25258, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25259, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25260, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25261, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25262, rss 724992, vmem 17690624
+Process "pbsdsh", pid 25265, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25266, rss 733184, vmem 17690624
+Process "pbsdsh", pid 25267, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25268, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25269, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25271, rss 729088, vmem 17690624
+Process "pbsdsh", pid 25272, rss 729088, vmem 17690624
+------------------------------------------------------------------------
+For more information visit https://opus.nci.org.au/x/SwGRAQ
+------------------------------------------------------------------------
+/home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/run_satel/config.12: line 1: 25061 Killed                  /g/data/v45/jm5970/env/track_env/bin/python /home/156/jm5970/github/phd_source/trackeddy_utils/reconstruct_field/reconstruct_satellite.py 1995 1 3

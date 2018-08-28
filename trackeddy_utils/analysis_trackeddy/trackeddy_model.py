@@ -34,11 +34,15 @@ ssh_mean=squeeze(ncfile.variables['SSH_mean'][:])
 
 areamap=array([[0,len(lon)],[0,len(lat)]])
 
-eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,20,1,1,data_meant=ssh_mean,areamap=areamap,mask=''\
-                     ,destdir='',physics='',diagnostics=False,pprint=False,sfilter='uniform')
+eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,55,1,1,data_meant=ssh_mean,areamap=areamap,mask=''\
+                    ,eccenfit=0.95,gaussrsquarefit=0.8,ellipsrsquarefit=0.85\
+                    ,destdir='',physics='',\
+                    diagnostics=False,pprint=False)
 save(outfile+outputfilenumber+'_pos.npy',eddytd)
 
-eddytdn=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,-20,-1,-1,data_meant=ssh_mean,areamap='',mask=''\
-                     ,destdir='',physics='',diagnostics=False,pprint=False,sfilter='uniform')
+eddytdn=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,-55,-1,-1,data_meant=ssh_mean,areamap=areamap,mask=''\
+                     ,eccenfit=0.95,gaussrsquarefit=0.8,ellipsrsquarefit=0.85\
+                     ,destdir='',physics='',\
+                     diagnostics=False,pprint=False)
 save(outfile+outputfilenumber+'_neg.npy',eddytdn)
 
