@@ -15,10 +15,6 @@ end=2017
 #ini=306
 #end=334
 
-module load pbs
-module load netcdf/4.3.3.1
-module use /projects/v45/modules
-module load cmstools
 module use /g/data3/hh5/public/modules
 module load conda/analysis3
 

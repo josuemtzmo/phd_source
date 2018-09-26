@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_satellite.py", line 40, in <module>
+    ncfile=Dataset(outputfile)
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/v45/jm5970/trackeddy_out/output/satellite_reconstructed_field_2016_7_9.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_satellite.py", line 40, in <module>
+    ncfile=Dataset(outputfile)
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/v45/jm5970/trackeddy_out/output/satellite_reconstructed_field_2016_9_11.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_satellite.py", line 40, in <module>
+    ncfile=Dataset(outputfile)
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/v45/jm5970/trackeddy_out/output/satellite_reconstructed_field_2017_3_5.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_satellite.py", line 40, in <module>
+    ncfile=Dataset(outputfile)
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/v45/jm5970/trackeddy_out/output/satellite_reconstructed_field_2017_7_9.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_satellite.py", line 40, in <module>
+    ncfile=Dataset(outputfile)
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/v45/jm5970/trackeddy_out/output/satellite_reconstructed_field_2017_9_11.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_satellite.py", line 40, in <module>
+    ncfile=Dataset(outputfile)
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/v45/jm5970/trackeddy_out/output/satellite_reconstructed_field_2017_11_13.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_satellite.py", line 40, in <module>
+    ncfile=Dataset(outputfile)
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/v45/jm5970/trackeddy_out/output/satellite_reconstructed_field_2017_5_7.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/kineticenergy_satellite.py", line 40, in <module>
+    ncfile=Dataset(outputfile)
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/v45/jm5970/trackeddy_out/output/satellite_reconstructed_field_2017_1_3.nc'

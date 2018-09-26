@@ -1,6 +1,6 @@
 #!/bin/bash
 #PBS -q expressbw
-#PBS -P g40
+#PBS -P v45
 #PBS -l ncpus=140
 #PBS -l mem=256Gb
 #PBS -l walltime=24:00:00
@@ -8,7 +8,7 @@
 
 dataorigin='satellite'
 ini=1993
-end=2014
+end=2017
 
 #dataorigin='model'
 #ini=306
@@ -17,12 +17,8 @@ end=2014
 #ini=312
 #end=318
 
-module load netcdf/4.3.3.1
-module use /projects/v45/modules
-module load cmstools
 module use /g/data3/hh5/public/modules
 module load conda/analysis3
-
 
 cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/ke_field/"
 

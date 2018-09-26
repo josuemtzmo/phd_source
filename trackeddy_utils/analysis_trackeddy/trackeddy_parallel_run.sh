@@ -10,13 +10,13 @@
 #PBS -q normalbw
 #PBS -P v45
 #PBS -l ncpus=140
-#PBS -l mem=200Gb
+#PBS -l mem=256Gb
 #PBS -l walltime=48:00:00
 #PBS -N EeddyP
 
 dataorigin='satellite'
 ini=1993
-end=2017
+end=2018
 
 #dataorigin='model'
 #ini=306

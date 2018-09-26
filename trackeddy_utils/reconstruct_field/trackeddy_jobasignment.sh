@@ -39,4 +39,3 @@ then
 else
   echo "First argument (dataorigin) should be 'model' or 'satellite'"
 fi
-
