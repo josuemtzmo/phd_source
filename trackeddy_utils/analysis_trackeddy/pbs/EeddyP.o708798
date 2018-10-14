@@ -1,0 +1,73 @@
+Running year 2011.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.0
+Running year 2011.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.1
+Running year 2011.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.2
+Running year 2011.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.3
+Running year 2011.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.4
+Running year 2011.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.5
+Running year 2012.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.6
+Running year 2012.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.7
+Running year 2012.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.8
+Running year 2012.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.9
+Running year 2012.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.10
+Running year 2012.  File: /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_satel/config.11
+Analizing the year  2012 in the months[ 9 - 11 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2012 in the months[ 5 - 7 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2011 in the months[ 1 - 3 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2012 in the months[ 7 - 9 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2011 in the months[ 3 - 5 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2012 in the months[ 3 - 5 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2012 in the months[ 1 - 3 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2011 in the months[ 5 - 7 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2011 in the months[ 7 - 9 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2011 in the months[ 11 - 13 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2011 in the months[ 9 - 11 ]
+Start loading data
+End loading data
+Saving Positive
+Analizing the year  2012 in the months[ 11 - 13 ]
+Start loading data
+End loading data
+Saving Positive
+
+======================================================================================
+                  Resource Usage on 2018-09-30 15:47:26:
+   Job Id:             708798.r-man2
+   Project:            v45
+   Exit Status:        0
+   Service Units:      194.15
+   NCPUs Requested:    6                      NCPUs Used: 6               
+                                           CPU Time Used: 150:30:30                                  
+   Memory Requested:   60.0GB                Memory Used: 22.88GB         
+   Walltime requested: 48:00:00            Walltime Used: 25:53:10        
+   JobFS requested:    500.0MB                JobFS used: 0B              
+======================================================================================

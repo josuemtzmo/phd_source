@@ -8,7 +8,7 @@
 
 dataorigin='satellite'
 ini=1993
-end=2017
+end=2016
 
 #dataorigin='model'
 #ini=306

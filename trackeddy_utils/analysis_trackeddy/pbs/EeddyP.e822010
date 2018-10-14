@@ -1,0 +1,150 @@
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 33, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 35, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 33, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 35, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 33, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 35, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 33, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 35, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 33, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 35, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 33, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 35, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2018/dt_global_allsat_phy_l4_20180101_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 49, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2017/dt_global_allsat_phy_l4_20170901_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 51, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2017/dt_global_allsat_phy_l4_20170901_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 49, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2017/dt_global_allsat_phy_l4_20171101_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 51, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2017/dt_global_allsat_phy_l4_20171101_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 49, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2017/dt_global_allsat_phy_l4_20170701_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 51, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2017/dt_global_allsat_phy_l4_20170701_20180116.nc'
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 49, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2017/dt_global_allsat_phy_l4_20170516_20180115.nc'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_satellite.py", line 51, in <module>
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180116.nc')
+  File "netCDF4/_netCDF4.pyx", line 2123, in netCDF4._netCDF4.Dataset.__init__
+  File "netCDF4/_netCDF4.pyx", line 1743, in netCDF4._netCDF4._ensure_nc_success
+FileNotFoundError: [Errno 2] No such file or directory: b'/g/data/ua8/CMEMS_SeaLevel/v4-0/2017/dt_global_allsat_phy_l4_20170516_20180116.nc'

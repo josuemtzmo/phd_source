@@ -3,13 +3,13 @@
 #PBS -q expressbw
 #PBS -P v45
 #PBS -l ncpus=140
-#PBS -l mem=200Gb
-#PBS -l walltime=10:00:00
+#PBS -l mem=300Gb
+#PBS -l walltime=20:00:00
 #PBS -N Reddy
 
 dataorigin='satellite'
 ini=1993
-end=2017
+end=2016
 
 #dataorigin='model'
 #ini=306

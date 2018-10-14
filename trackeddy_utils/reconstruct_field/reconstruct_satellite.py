@@ -13,6 +13,7 @@ from trackeddy.physics import *
 from trackeddy.plotfunc import *
 from numpy import *
 from calendar import monthrange
+import numpy.ma as ma
 
 year=sys.argv[1]
 monthsin=int(sys.argv[2])
@@ -50,12 +51,13 @@ for month in range(monthsin,monthsend):
 sshatime=ma.masked_where(sshatime <= -2147483647, sshatime)
 print('End loading data')
 sshashape=np.shape(sshatime)
+
 # Output data path
 try:
    analysedatap=np.load(outfolder+year+str(monthsin)+'-'+str(monthsend)+'_pos_satellite.npy')
    dictanalysep=analysedatap.item()
    reconstruct_p=reconstruct_syntetic(sshashape,lon,lat,dictanalysep)
-   
+   reconstruct_p=ma.array(reconstruct_p,mask=sshatime.mask)
    filename=outfolder+'output/satellite_reconstructed_field_'+outputfilenumber+'_'+str(monthsin)+'_'+str(monthsend)+'_cyc.nc'
    vargeonc(filename,lat,lon,reconstruct_p,shape(reconstruct_p)[0],'SSHa_cyc',nc_description='Cyclonic reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
 except:
@@ -65,7 +67,7 @@ try:
    analysedatan=np.load(outfolder+year+str(monthsin)+'-'+str(monthsend)+'_neg_satellite.npy')
    dictanalysen=analysedatan.item()
    reconstruct_n=reconstruct_syntetic(sshashape,lon,lat,dictanalysen)
-
+   reconstruct_n=ma.array(reconstruct_n,mask=sshatime.mask)
    filename=outfolder+'output/satellite_reconstructed_field_'+outputfilenumber+'_'+str(monthsin)+'_'+str(monthsend)+'_acyc.nc'
    vargeonc(filename,lat,lon,reconstruct_n,shape(reconstruct_n)[0],'SSHa_acyc',nc_description='Anticyclonic reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
 except:

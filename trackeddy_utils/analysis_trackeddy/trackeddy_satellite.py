@@ -29,8 +29,11 @@ ii=0
 datashapetime=0
 for month in range(monthsin,monthsend):
     datashapetime=datashapetime+monthrange(int(year), month)[1]
+try:
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180115.nc')
+except:
+    ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180516.nc')
 
-ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20180115.nc')
 #ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'0101_20170110.nc')
 ssha=squeeze(ncfile.variables['sla'][:])
 lon=ncfile.variables['longitude'][:]
@@ -42,7 +45,10 @@ print('Start loading data')
 for month in range(monthsin,monthsend):
     daysmonth=monthrange(int(year), month)[1]
     for days in range(1,daysmonth+1):
-        ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
+        try:
+            ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
+        except:
+            ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180516.nc')
         #ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20170110.nc')
         sshatime[ii,:,:]=squeeze(ncfile.variables['sla'][:])
         ii=ii+1
@@ -55,12 +61,18 @@ areamap=array([[0,len(lon)],[0,len(lat)]])
 #areamap=array([[0,len(lon)],[0,int(len(lat)/3)]])
 
 
-eddytd=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,sshatime.max(),0.01,0.01,data_meant='',areamap=areamap,mask=''\
-                     ,sfilter='uniform',sfsize=50,destdir='',physics='',diagnostics=False,pprint=False)
+filters = {'time':{'type':None,'t':None,'t0':None,'value':None},
+           'spatial':{'type':'moving','window':50,'mode':'uniform'}}
+levels = {'max':sshatime.max(),'min':0.01,'step':0.01}
+
+eddytd=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,levels,areamap=areamap,mask=''\
+                     ,filters=filters,destdir='',physics='',diagnostics=False,pprint=False)
 print("Saving Positive")
 save(outfile+year+str(monthsin)+'-'+str(monthsend)+'_pos_satellite.npy',eddytd)
 
-eddytdn=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,sshatime.min(),-0.01,-0.01,data_meant='',areamap=areamap,mask=''\
-                     ,sfilter='uniform',sfsize=50,destdir='',physics='',diagnostics=False,pprint=False)
+levels = {'max':sshatime.min(),'min':-0.01,'step':-0.01}
+
+eddytdn=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,levels,areamap=areamap,mask=''\
+                     ,filters=filters,destdir='',physics='',diagnostics=False,pprint=True)
 print("Saving Negative")
 save(outfile+year+str(monthsin)+'-'+str(monthsend)+'_neg_satellite.npy',eddytdn)
