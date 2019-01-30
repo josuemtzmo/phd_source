@@ -9,21 +9,28 @@
 
 #PBS -q normalbw
 #PBS -P v45
-#PBS -l ncpus=140
-#PBS -l mem=350Gb
+# #PBS -l ncpus=140
+#PBS -l ncpus=168
+#PBS -l mem=1500Gb
+# #PBS -l mem=450Gb
 #PBS -l walltime=48:00:00
-#PBS -N EeddyP
+#PBS -N Eeddy_model
+# #PBS -N Eeddy_sat
 
-dataorigin='satellite'
+#dataorigin='satellite'
 #ini=1993
 #end=2018
 
-ini=1993
-end=2016
+#dataorigin='satellite'
+#ini=1993
+#end=2016
 
-#dataorigin='model'
-#ini=306
-#end=334
+dataorigin='model'
+ini=1
+end=56
+#ini=27
+#end=52
+file_div=3
 
 module load pbs
 module load netcdf/4.3.3.1
@@ -38,7 +45,7 @@ cd $cdir
 
 if [ "$dataorigin" == "model" ];
 then 
-  ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_model'
+  ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_model' $file_div
 elif [ "$dataorigin" == "satellite" ];
 then
   ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_satel'

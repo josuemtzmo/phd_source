@@ -2,7 +2,7 @@
 #PBS -q expressbw
 #PBS -P v45
 #PBS -l ncpus=140
-#PBS -l mem=256Gb
+#PBS -l mem=520Gb
 #PBS -l walltime=24:00:00
 #PBS -N EKEeddy
 

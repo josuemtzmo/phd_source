@@ -3,7 +3,7 @@
 #PBS -q expressbw
 #PBS -P v45
 #PBS -l ncpus=140
-#PBS -l mem=300Gb
+#PBS -l mem=350Gb
 #PBS -l walltime=20:00:00
 #PBS -N Reddy
 

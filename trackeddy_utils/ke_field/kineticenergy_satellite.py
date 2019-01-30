@@ -14,13 +14,13 @@ from trackeddy.physics import *
 from numpy import *
 from calendar import monthrange
 import gsw as gs
-
-print(help(gs.geostrophic_velocity))
-
+import datetime
 
 year=sys.argv[1]
 monthsin=int(sys.argv[2])
 monthsend=int(sys.argv[3])
+
+init_time= datetime.datetime(int(year), monthsin, 1)
 
 print('Analizing the year ',year,'in the months[',monthsin,'-',monthsend,']')
 inputfiles='/g/data/ua8/CMEMS_SeaLevel/v4-0/'+year+'/'
@@ -38,6 +38,8 @@ lon=ncfile.variables['longitude'][:]
 lat=ncfile.variables['latitude'][:]
 
 sat_EKE=zeros([datashapetime,shape(ssha)[0],shape(ssha)[1]])
+sat_u=zeros([datashapetime,shape(ssha)[0],shape(ssha)[1]])
+sat_v=zeros([datashapetime,shape(ssha)[0],shape(ssha)[1]])
 ii=0
 print('Start loading data')
 for month in range(monthsin,monthsend):
@@ -46,11 +48,19 @@ for month in range(monthsin,monthsend):
         ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
         #ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20170110.nc')
         sat_EKE[ii,:,:]=KE(squeeze(ncfile.variables['ugosa'][:])*100,squeeze(ncfile.variables['vgosa'][:])*100)
+        sat_u[ii,:,:]=squeeze(ncfile.variables['ugosa'][:])
+        sat_v[ii,:,:]=squeeze(ncfile.variables['vgosa'][:])
         ii=ii+1
         ncfile.close()
 
 filename=outfolder+'satellite_EKE_field_'+str(year)+'_'+str(monthsin)+'_'+str(monthsend)+'.nc'
-vargeonc(filename,lat,lon,sat_EKE,shape(sat_EKE)[0],'EKE_eddy',nc_description='EKE from SSHa field.',units='m',dt='',dim='2D')
+vargeonc(filename,lat,lon,sat_EKE,shape(sat_EKE)[0],'EKE_eddy',init_time,nc_description='EKE from SSHa field.',units='m',dt='',dim='2D')
+
+filename=outfolder+'satellite_u_'+year+'_'+str(monthsin)+'_'+str(monthsend)+'.nc'
+vargeonc(filename,lat,lon,sat_u,shape(sat_u)[0],'u',init_time,nc_description='Geostrophic velocity Aviso +.',units='m/s',dt='',dim='2D')
+   
+filename=outfolder+'satellite_v_'+year+'_'+str(monthsin)+'_'+str(monthsend)+'.nc'
+vargeonc(filename,lat,lon,sat_v,shape(sat_v)[0],'v',init_time,nc_description='Geostrophic velocity Aviso +.',units='m/s',dt='',dim='2D')
 
 expts=['','_cyc','_acyc','_diff']
 varname=['reconstruct','cyc','acyc','reconstruct']
@@ -85,10 +95,16 @@ for ii in range(0,len(expts)):
 #   plt.savefig(outfolder+'ke_'+year+'_'+str(monthsin)+'_'+str(monthsend)+'.png')
 
    filename=outfolder+'satellite_TEKE_eddy_'+year+'_'+str(monthsin)+'_'+str(monthsend)+expts[ii]+'.nc'
-   vargeonc(filename,lat,lon,EKE_eddy,shape(EKE_eddy)[0],'EKE_eddy',nc_description='EKE_eddy using the geostrophic velocity form the reconstructed field (Trackeddy).',units='cm2/s2',dt='',dim='2D')
+   vargeonc(filename,lat,lon,EKE_eddy,shape(EKE_eddy)[0],'EKE_eddy',init_time,nc_description='EKE_eddy using the geostrophic velocity form the reconstructed field (Trackeddy).',units='cm2/s2',dt='',dim='2D')
    
    filename=outfolder+'satellite_v_eddy_'+year+'_'+str(monthsin)+'_'+str(monthsend)+expts[ii]+'.nc'
-   vargeonc(filename,lat,lon,v_eddy,shape(v_eddy)[0],'v_eddy',nc_description='Geostrophic velocity form the reconstructed field (Trackeddy).',units='cm',dt='',dim='2D')
+   vargeonc(filename,lat,lon,v_eddy,shape(v_eddy)[0],'v_eddy',init_time,nc_description='Geostrophic velocity form the reconstructed field (Trackeddy).',units='m/s',dt='',dim='2D')
    
    filename=outfolder+'satellite_u_eddy_'+year+'_'+str(monthsin)+'_'+str(monthsend)+expts[ii]+'.nc'
-   vargeonc(filename,lat,lon,u_eddy,shape(u_eddy)[0],'u_eddy',nc_description='Geostrophic velocity form the reconstructed field (Trackeddy).',units='cm',dt='',dim='2D')
+   vargeonc(filename,lat,lon,u_eddy,shape(u_eddy)[0],'u_eddy',init_time,nc_description='Geostrophic velocity form the reconstructed field (Trackeddy).',units='m/s',dt='',dim='2D')
+
+   filename=outfolder+'satellite_v_residual_'+year+'_'+str(monthsin)+'_'+str(monthsend)+expts[ii]+'.nc'
+   vargeonc(filename,lat,lon,sat_v-v_eddy,shape(sat_v-v_eddy)[0],'v_res',init_time,nc_description='Residual Geostrophic velocity Aviso+ - reconstructed field (Trackeddy).',units='m/s',dt='',dim='2D')
+
+   filename=outfolder+'satellite_u_residual_'+year+'_'+str(monthsin)+'_'+str(monthsend)+expts[ii]+'.nc'
+   vargeonc(filename,lat,lon,sat_u-u_eddy,shape(sat_u-u_eddy)[0],'u_res',init_time,nc_description='Residual Geostrophic velocity Aviso+ - reconstructed field (Trackeddy).',units='m/s',dt='',dim='2D')

@@ -14,10 +14,13 @@ from trackeddy.plotfunc import *
 from numpy import *
 from calendar import monthrange
 import numpy.ma as ma
+import datetime
 
 year=sys.argv[1]
 monthsin=int(sys.argv[2])
 monthsend=int(sys.argv[3])
+
+init_time= datetime.datetime(int(year), monthsin, 1)
 
 print('Analizing the year ',year,'in the months[',monthsin,'-',monthsend,']')
 inputfiles='/g/data/ua8/CMEMS_SeaLevel/v4-0/'+year+'/'
@@ -59,17 +62,17 @@ try:
    reconstruct_p=reconstruct_syntetic(sshashape,lon,lat,dictanalysep)
    reconstruct_p=ma.array(reconstruct_p,mask=sshatime.mask)
    filename=outfolder+'output/satellite_reconstructed_field_'+outputfilenumber+'_'+str(monthsin)+'_'+str(monthsend)+'_cyc.nc'
-   vargeonc(filename,lat,lon,reconstruct_p,shape(reconstruct_p)[0],'SSHa_cyc',nc_description='Cyclonic reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
+   vargeonc(filename,lat,lon,reconstruct_p,shape(reconstruct_p)[0],'SSHa_cyc',init_time,nc_description='Cyclonic reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
 except:
    pass
 
 try:
    analysedatan=np.load(outfolder+year+str(monthsin)+'-'+str(monthsend)+'_neg_satellite.npy')
    dictanalysen=analysedatan.item()
-   reconstruct_n=reconstruct_syntetic(sshashape,lon,lat,dictanalysen)
+   reconstruct_n=-reconstruct_syntetic(sshashape,lon,lat,dictanalysen)
    reconstruct_n=ma.array(reconstruct_n,mask=sshatime.mask)
    filename=outfolder+'output/satellite_reconstructed_field_'+outputfilenumber+'_'+str(monthsin)+'_'+str(monthsend)+'_acyc.nc'
-   vargeonc(filename,lat,lon,reconstruct_n,shape(reconstruct_n)[0],'SSHa_acyc',nc_description='Anticyclonic reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
+   vargeonc(filename,lat,lon,reconstruct_n,shape(reconstruct_n)[0],'SSHa_acyc',init_time,nc_description='Anticyclonic reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
 except:
    pass
 
@@ -80,9 +83,9 @@ try:
    plt.savefig(outfolder+'output/satellite_reconstructed_field_'+outputfilenumber+'.png')
 
    filename=outfolder+'output/satellite_reconstructed_field_'+outputfilenumber+'_'+str(monthsin)+'_'+str(monthsend)+'.nc'
-   vargeonc(filename,lat,lon,reconstruct,shape(reconstruct)[0],'SSHa_reconstruct',nc_description='Reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
+   vargeonc(filename,lat,lon,reconstruct,shape(reconstruct)[0],'SSHa_reconstruct',init_time,nc_description='Reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
 
    filename=outfolder+'output/satellite_reconstructed_field_'+outputfilenumber+'_'+str(monthsin)+'_'+str(monthsend)+'_diff.nc'
-   vargeonc(filename,lat,lon,sshatime-reconstruct,shape(reconstruct)[0],'SSHa_reconstruct',nc_description='Reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
+   vargeonc(filename,lat,lon,sshatime-reconstruct,shape(reconstruct)[0],'SSHa_reconstruct',init_time,nc_description='Reconstructed Field from SSHa field using Trackeddy.',units='m',dt='',dim='2D')
 except:
    pass

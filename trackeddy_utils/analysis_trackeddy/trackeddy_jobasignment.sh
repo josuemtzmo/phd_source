@@ -7,6 +7,7 @@ dataorigin=$1
 timeinit=$2
 timeend=$3
 rundir=$4
+file_divisions=$5
 counter=0
 months=(1 3 5 7 9 11 13)
 cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/"
@@ -14,13 +15,27 @@ python_path="/g/data/v45/jm5970/env/track_env/bin/python"
 
 if [ "$dataorigin" == "model" ] || [ "$dataorigin" == "satellite" ];
 then
+  timeinit=$((timeinit-1))
+  timeend=$((timeend-1))
   if [ "$dataorigin" == "model" ];
   then
     for i in `seq $timeinit $timeend`;
     do
-      echo "${python_path} ${cdir}trackeddy_$dataorigin.py $i" > $cdir$rundir/config.$((i-timeinit))
-      echo "Running at $((i-timeinit)).  File: $cdir$rundir/config.$((i-timeinit))"
-      /opt/pbs/default/bin/pbsdsh -v -n $((i-timeinit))*2  -- bash $cdir$rundir/config.$((i-timeinit)) > $cdir$rundir/nohup.$((i-timeinit)) &
+      for j in `seq 0 $((file_divisions-1))`;
+      do
+        if [ "$timeinit" == "0" ];
+        then
+	   counter=$(( i*(file_divisions) - timeint + j))
+           echo "${python_path} ${cdir}trackeddy_$dataorigin.py $((i+1)) $j $file_divisions $counter" > $cdir$rundir/config.$(printf %05d ${counter%})
+           echo "Running at core $counter.  File: config."$(printf %05d ${counter%})
+           /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) > $cdir$rundir/nohup.$(printf %05d ${counter%}) &
+        else
+	   counter=$(( i*(file_divisions)-timeint+j+file_divisions-1))
+           echo "${python_path} ${cdir}trackeddy_$dataorigin.py $((i+1)) $j $file_divisions $counter" > $cdir$rundir/config.$(printf %05d ${counter%})
+           echo "Running at core $counter.  File: config."$(printf %05d ${counter%})
+           /opt/pbs/default/bin/pbsdsh -v -n $((counter-file_divisions+1))  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) > $cdir$rundir/nohup.$(printf %05d ${counter%}) &
+        fi
+      done
     done
     wait
   else
@@ -39,5 +54,3 @@ then
 else
   echo "First argument (dataorigin) should be 'model' or 'satellite'"
 fi
-
-
