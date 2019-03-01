@@ -1,0 +1,19 @@
+Running at core 0.  File: config.00000
+main: spawned task 0x00000000 on logical node 0 event 2
+pbsdsh: waiting on 1 spawned and 0 obits
+pbsdsh: waiting on 0 spawned and 1 obits
+pbsdsh: waiting on 0 spawned and 1 obits
+pbsdsh: killing task 0x00000002 signal 15
+
+======================================================================================
+                  Resource Usage on 2019-02-05 12:17:22:
+   Job Id:             5373840.r-man2
+   Project:            v45
+   Exit Status:        271 (Linux Signal 15 SIGTERM Termination)
+   Service Units:      4036.38
+   NCPUs Requested:    168                    NCPUs Used: 168             
+                                           CPU Time Used: 19:13:47                                   
+   Memory Requested:   1.46TB                Memory Used: 15.25GB         
+   Walltime requested: 48:00:00            Walltime Used: 19:13:15        
+   JobFS requested:    2.93GB                 JobFS used: 0B              
+======================================================================================

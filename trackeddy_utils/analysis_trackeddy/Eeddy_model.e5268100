@@ -1,0 +1,188 @@
+
+------------------------------------------------------------------------
+Job 5268100.r-man2 has exceeded memory allocation on node r4400
+Process "bash", pid 10801, rss 1011712, vmem 9687040
+Process "bash", pid 10807, rss 962560, vmem 9687040
+Process "python", pid 10809, rss 7085518848, vmem 12666257408
+Process "bash", pid 10814, rss 962560, vmem 9687040
+Process "python", pid 10816, rss 7940546560, vmem 13413871616
+Process "bash", pid 10822, rss 962560, vmem 9687040
+Process "python", pid 10824, rss 9916108800, vmem 11378655232
+Process "bash", pid 10829, rss 970752, vmem 9687040
+Process "python", pid 10831, rss 9318354944, vmem 10756284416
+Process "bash", pid 10836, rss 962560, vmem 9687040
+Process "python", pid 10838, rss 9102327808, vmem 14502035456
+Process "bash", pid 10843, rss 966656, vmem 9687040
+Process "bash", pid 10849, rss 962560, vmem 9687040
+Process "python", pid 10851, rss 10972962816, vmem 12419239936
+Process "bash", pid 10857, rss 966656, vmem 9687040
+Process "python", pid 10859, rss 10508754944, vmem 11884642304
+Process "python", pid 10860, rss 10596462592, vmem 12081074176
+Process "bash", pid 10865, rss 962560, vmem 9687040
+Process "python", pid 10867, rss 7091384320, vmem 12666216448
+Process "bash", pid 10872, rss 962560, vmem 9687040
+Process "python", pid 10874, rss 9199489024, vmem 14755295232
+Process "bash", pid 10879, rss 966656, vmem 9687040
+Process "python", pid 10881, rss 9633361920, vmem 15202680832
+Process "bash", pid 10886, rss 962560, vmem 9687040
+Process "python", pid 10888, rss 9594781696, vmem 15114678272
+Process "bash", pid 10893, rss 962560, vmem 9687040
+Process "python", pid 10895, rss 10629914624, vmem 12040159232
+Process "bash", pid 10900, rss 966656, vmem 9687040
+Process "python", pid 10902, rss 9601110016, vmem 15114944512
+Process "bash", pid 10907, rss 966656, vmem 9687040
+Process "python", pid 10909, rss 9592565760, vmem 15115935744
+Process "bash", pid 10914, rss 962560, vmem 9687040
+Process "python", pid 10916, rss 8238600192, vmem 13802954752
+Process "bash", pid 10921, rss 1015808, vmem 9687040
+Process "python", pid 10923, rss 7513645056, vmem 13016387584
+Process "bash", pid 10928, rss 966656, vmem 9687040
+Process "python", pid 10930, rss 7202873344, vmem 12666400768
+Process "bash", pid 10935, rss 962560, vmem 9687040
+Process "python", pid 10937, rss 10228211712, vmem 15814791168
+Process "bash", pid 10942, rss 966656, vmem 9687040
+Process "python", pid 10944, rss 7248257024, vmem 12753780736
+Process "bash", pid 10949, rss 966656, vmem 9687040
+Process "python", pid 10951, rss 10712059904, vmem 12217438208
+Process "bash", pid 10956, rss 962560, vmem 9687040
+Process "python", pid 10958, rss 7542972416, vmem 13104320512
+Process "bash", pid 10963, rss 962560, vmem 9687040
+Process "python", pid 10965, rss 10689351680, vmem 16165007360
+Process "bash", pid 10970, rss 962560, vmem 9687040
+Process "python", pid 10972, rss 10920448000, vmem 12428963840
+Process "bash", pid 10977, rss 962560, vmem 9687040
+Process "python", pid 10979, rss 11197665280, vmem 12740296704
+Process "bash", pid 10984, rss 966656, vmem 9687040
+Process "python", pid 10986, rss 10908725248, vmem 12428972032
+Process "bash", pid 10991, rss 962560, vmem 9687040
+Process "python", pid 10993, rss 10311774208, vmem 15805091840
+Process "python", pid 10998, rss 9263464448, vmem 14853017600
+------------------------------------------------------------------------
+For more information visit https://opus.nci.org.au/x/SwGRAQ
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Job 5268100.r-man2 has exceeded memory allocation on node r4400
+Process "bash", pid 10801, rss 1011712, vmem 9687040
+Process "bash", pid 10807, rss 962560, vmem 9687040
+Process "python", pid 10809, rss 7085510656, vmem 12666257408
+Process "bash", pid 10814, rss 962560, vmem 9687040
+Process "python", pid 10816, rss 7940608000, vmem 13413871616
+Process "bash", pid 10822, rss 962560, vmem 9687040
+Process "python", pid 10824, rss 9910927360, vmem 11378655232
+Process "bash", pid 10829, rss 970752, vmem 9687040
+Process "python", pid 10831, rss 9318354944, vmem 10756284416
+Process "bash", pid 10836, rss 962560, vmem 9687040
+Process "python", pid 10838, rss 9102327808, vmem 14502035456
+Process "bash", pid 10843, rss 966656, vmem 9687040
+Process "bash", pid 10849, rss 962560, vmem 9687040
+Process "python", pid 10851, rss 10971086848, vmem 12419239936
+Process "bash", pid 10857, rss 966656, vmem 9687040
+Process "python", pid 10859, rss 10508754944, vmem 11884642304
+Process "python", pid 10860, rss 10594041856, vmem 12081074176
+Process "bash", pid 10865, rss 962560, vmem 9687040
+Process "python", pid 10867, rss 7088865280, vmem 12666216448
+Process "bash", pid 10872, rss 962560, vmem 9687040
+Process "python", pid 10874, rss 9197858816, vmem 14755295232
+Process "bash", pid 10879, rss 966656, vmem 9687040
+Process "python", pid 10881, rss 9633357824, vmem 15202680832
+Process "bash", pid 10886, rss 962560, vmem 9687040
+Process "python", pid 10888, rss 9594888192, vmem 15114678272
+Process "bash", pid 10893, rss 962560, vmem 9687040
+Process "python", pid 10895, rss 10629914624, vmem 12040159232
+Process "bash", pid 10900, rss 966656, vmem 9687040
+Process "python", pid 10902, rss 9601105920, vmem 15114944512
+Process "bash", pid 10907, rss 966656, vmem 9687040
+Process "python", pid 10909, rss 9588150272, vmem 15115935744
+Process "bash", pid 10914, rss 962560, vmem 9687040
+Process "python", pid 10916, rss 8238407680, vmem 13802954752
+Process "bash", pid 10921, rss 1015808, vmem 9687040
+Process "python", pid 10923, rss 7511523328, vmem 13016387584
+Process "bash", pid 10928, rss 966656, vmem 9687040
+Process "python", pid 10930, rss 7202926592, vmem 12666400768
+Process "bash", pid 10935, rss 962560, vmem 9687040
+Process "python", pid 10937, rss 10228203520, vmem 15814791168
+Process "bash", pid 10942, rss 966656, vmem 9687040
+Process "python", pid 10944, rss 7248257024, vmem 12753780736
+Process "bash", pid 10949, rss 966656, vmem 9687040
+Process "python", pid 10951, rss 10710171648, vmem 12217438208
+Process "bash", pid 10956, rss 962560, vmem 9687040
+Process "python", pid 10958, rss 7542968320, vmem 13104320512
+Process "bash", pid 10963, rss 962560, vmem 9687040
+Process "python", pid 10965, rss 10689351680, vmem 16165007360
+Process "bash", pid 10970, rss 962560, vmem 9687040
+Process "python", pid 10972, rss 10915917824, vmem 12428963840
+Process "bash", pid 10977, rss 962560, vmem 9687040
+Process "python", pid 10979, rss 11194585088, vmem 12740296704
+Process "bash", pid 10984, rss 966656, vmem 9687040
+Process "python", pid 10986, rss 10908725248, vmem 12428972032
+Process "bash", pid 10991, rss 962560, vmem 9687040
+Process "python", pid 10993, rss 10311770112, vmem 15805091840
+Process "python", pid 10998, rss 9261346816, vmem 14853017600
+------------------------------------------------------------------------
+For more information visit https://opus.nci.org.au/x/SwGRAQ
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Job 5268100.r-man2 has exceeded memory allocation on node r4400
+Process "bash", pid 10801, rss 1011712, vmem 9687040
+Process "bash", pid 10807, rss 962560, vmem 9687040
+Process "python", pid 10809, rss 7085510656, vmem 12666257408
+Process "bash", pid 10814, rss 962560, vmem 9687040
+Process "python", pid 10816, rss 7940608000, vmem 13413871616
+Process "bash", pid 10822, rss 962560, vmem 9687040
+Process "python", pid 10824, rss 9910927360, vmem 11378655232
+Process "bash", pid 10829, rss 970752, vmem 9687040
+Process "python", pid 10831, rss 9318354944, vmem 10756284416
+Process "bash", pid 10836, rss 962560, vmem 9687040
+Process "python", pid 10838, rss 9102327808, vmem 14502035456
+Process "bash", pid 10843, rss 966656, vmem 9687040
+Process "bash", pid 10849, rss 962560, vmem 9687040
+Process "python", pid 10851, rss 10971086848, vmem 12419239936
+Process "bash", pid 10857, rss 966656, vmem 9687040
+Process "python", pid 10859, rss 10508754944, vmem 11884642304
+Process "python", pid 10860, rss 10594041856, vmem 12081074176
+Process "bash", pid 10865, rss 962560, vmem 9687040
+Process "python", pid 10867, rss 7088865280, vmem 12666216448
+Process "bash", pid 10872, rss 962560, vmem 9687040
+Process "python", pid 10874, rss 9197858816, vmem 14755295232
+Process "bash", pid 10879, rss 966656, vmem 9687040
+Process "python", pid 10881, rss 9633357824, vmem 15202680832
+Process "bash", pid 10886, rss 962560, vmem 9687040
+Process "python", pid 10888, rss 9594888192, vmem 15114678272
+Process "bash", pid 10893, rss 962560, vmem 9687040
+Process "python", pid 10895, rss 10629914624, vmem 12040159232
+Process "bash", pid 10900, rss 966656, vmem 9687040
+Process "python", pid 10902, rss 9601105920, vmem 15114944512
+Process "bash", pid 10907, rss 966656, vmem 9687040
+Process "python", pid 10909, rss 9588150272, vmem 15115935744
+Process "bash", pid 10914, rss 962560, vmem 9687040
+Process "python", pid 10916, rss 8238407680, vmem 13802954752
+Process "bash", pid 10921, rss 1015808, vmem 9687040
+Process "python", pid 10923, rss 7511523328, vmem 13016387584
+Process "bash", pid 10928, rss 966656, vmem 9687040
+Process "python", pid 10930, rss 7202926592, vmem 12666400768
+Process "bash", pid 10935, rss 962560, vmem 9687040
+Process "python", pid 10937, rss 10228203520, vmem 15814791168
+Process "bash", pid 10942, rss 966656, vmem 9687040
+Process "python", pid 10944, rss 7248257024, vmem 12753780736
+Process "bash", pid 10949, rss 966656, vmem 9687040
+Process "python", pid 10951, rss 10710171648, vmem 12217438208
+Process "bash", pid 10956, rss 962560, vmem 9687040
+Process "python", pid 10958, rss 7542968320, vmem 13104320512
+Process "bash", pid 10963, rss 962560, vmem 9687040
+Process "python", pid 10965, rss 10689351680, vmem 16165007360
+Process "bash", pid 10970, rss 962560, vmem 9687040
+Process "python", pid 10972, rss 10915917824, vmem 12428963840
+Process "bash", pid 10977, rss 962560, vmem 9687040
+Process "python", pid 10979, rss 11194585088, vmem 12740296704
+Process "bash", pid 10984, rss 966656, vmem 9687040
+Process "python", pid 10986, rss 10908725248, vmem 12428972032
+Process "bash", pid 10991, rss 962560, vmem 9687040
+Process "python", pid 10993, rss 10311770112, vmem 15805091840
+Process "python", pid 10998, rss 9261346816, vmem 14853017600
+------------------------------------------------------------------------
+For more information visit https://opus.nci.org.au/x/SwGRAQ
+------------------------------------------------------------------------
+/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_model/config.00137: line 1: 10979 Killed                  /g/data/v45/jm5970/env/track_env/bin/python /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_model.py 46 2 3 137
+/home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/run_model/config.00118: line 1: 10851 Killed                  /g/data/v45/jm5970/env/track_env/bin/python /home/156/jm5970/github/phd_source/trackeddy_utils/analysis_trackeddy/trackeddy_model.py 40 1 3 118

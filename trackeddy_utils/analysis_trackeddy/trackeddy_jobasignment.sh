@@ -25,15 +25,16 @@ then
       do
         if [ "$timeinit" == "0" ];
         then
-	   counter=$(( i*(file_divisions) - timeint + j))
+	   counter=$(( i*(file_divisions) + j))
            echo "${python_path} ${cdir}trackeddy_$dataorigin.py $((i+1)) $j $file_divisions $counter" > $cdir$rundir/config.$(printf %05d ${counter%})
            echo "Running at core $counter.  File: config."$(printf %05d ${counter%})
-           /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) > $cdir$rundir/nohup.$(printf %05d ${counter%}) &
+           /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%})
         else
-	   counter=$(( i*(file_divisions)-timeint+j+file_divisions-1))
+           core_diff=$(((timeinit*file_divisions)))
+           counter=$(( i*(file_divisions) + j))
            echo "${python_path} ${cdir}trackeddy_$dataorigin.py $((i+1)) $j $file_divisions $counter" > $cdir$rundir/config.$(printf %05d ${counter%})
-           echo "Running at core $counter.  File: config."$(printf %05d ${counter%})
-           /opt/pbs/default/bin/pbsdsh -v -n $((counter-file_divisions+1))  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) > $cdir$rundir/nohup.$(printf %05d ${counter%}) &
+           echo "Running at core $((counter)).  File: config."$(printf %05d ${counter%})
+           /opt/pbs/default/bin/pbsdsh -v -n $((counter-core_diff))  -- bash $cdir$rundir/config.$(printf %05d ${counter%})
         fi
       done
     done

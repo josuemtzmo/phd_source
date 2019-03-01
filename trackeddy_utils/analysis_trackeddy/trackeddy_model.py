@@ -54,10 +54,10 @@ areamap=array([[0,len(lon)],[0,len(lat)]])
 
 filters = {'time':{'type':'historical','t':None,'t0':None,'value':ssh_mean},
            'spatial':{'type':'moving','window':120,'mode':'uniform'}}
-levels = {'max':eta.max(),'min':0.01,'step':0.01}
 
 preferences={'ellipse':0.70,'eccentricity':0.95,'gaussian':0.7}
 
+levels = {'max':eta.max(),'min':0.01,'step':0.01}
 eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,levels,areamap=areamap,mask='',maskopt='forcefit'\
                     ,preferences=preferences,filters=filters,destdir='',physics='',diagnostics=False,pprint=True)
 print("Saving Positive",file_count)
