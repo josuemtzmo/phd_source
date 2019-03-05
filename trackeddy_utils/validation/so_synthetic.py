@@ -2,9 +2,9 @@ import time
 tic=time.time()
 import matplotlib
 matplotlib.use('Agg')
-import trackeddy
 import trackeddy.tracking as ttrack
 from trackeddy.geometryfunc import *
+import trackeddy.savedata import *
 from pylab import *
 import random
 import pdb
@@ -168,6 +168,40 @@ for tt in range(shape(data)[0]):
     m_ke_w.append(mean(ke_w))
     m_ke_j.append(mean(ke_j))
 
+
+filename=outfolder+'output/u_c'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,u_c,shape(j_field)[0],'u',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+filename=outfolder+'output/v_c'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,v_c,shape(j_field)[0],'v',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+
+
+filename=outfolder+'output/u_f'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,u_f,shape(j_field)[0],'u',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+filename=outfolder+'output/v_f'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,v_f,shape(j_field)[0],'v',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+
+
+filename=outfolder+'output/u_w'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,u_w,shape(j_field)[0],'u',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+filename=outfolder+'output/v_w'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,v_w,shape(j_field)[0],'v',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+
+
+filename=outfolder+'output/u_j'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,u_j,shape(j_field)[0],'u',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+filename=outfolder+'output/v_j'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,v_j,shape(j_field)[0],'v',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+
+
+filename=outfolder+'output/ke_c'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,ke_c,shape(j_field)[0],'teke',init_time,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
+filename=outfolder+'output/ke_f'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,ke_f,shape(j_field)[0],'teke',init_time,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
+filename=outfolder+'output/ke_w'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,ke_w,shape(j_field)[0],'teke',init_time,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
+filename=outfolder+'output/Ke_j'+str(init_time)+'.nc'
+vargeonc(filename,yy,xx,ke_j,shape(j_field)[0],'teke',init_time,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
+
 ################################################################################
 ################################################################################
 #################################### PLOT ######################################
@@ -181,3 +215,4 @@ toc=time.time()
 
 print("######## ELAPSED TIME: ###########")
 print("######## %2f s ###########" % (toc-tic))
+
