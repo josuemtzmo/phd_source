@@ -4,7 +4,7 @@ import matplotlib
 matplotlib.use('Agg')
 import trackeddy.tracking as ttrack
 from trackeddy.geometryfunc import *
-import trackeddy.savedata import *
+from trackeddy.savedata import *
 from pylab import *
 import random
 import pdb
@@ -19,7 +19,7 @@ importlib.reload(ttrack)
 
 init_time=sys.argv[1]
 
-outfolder='/g/data/v45/jm5970/trackeddy_out/validation/'
+outfolder='/g/data/v45/jm5970/trackeddy_output/validation/'
 t  = 10
 
 xx = linspace(0,360,3600)

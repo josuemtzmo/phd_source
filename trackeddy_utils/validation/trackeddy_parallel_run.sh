@@ -12,7 +12,7 @@
 #PBS -l ncpus=112
 #PBS -l mem=1024Gb
 #PBS -l walltime=48:00:00
-#PBS -N Eeddy_model
+#PBS -N TEddy_validation
 
 ini=0
 end=1120

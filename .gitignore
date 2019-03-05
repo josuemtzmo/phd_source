@@ -3,3 +3,9 @@ pbs/*
 *pbs
 nohup.*
 config.*
+Eeddy_model.*
+Eeddy_sat.*
+EKEeddy.*
+Reddy.*
+2L_TEddy.*
+TEddy_validation.*
