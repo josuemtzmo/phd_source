@@ -9,10 +9,11 @@
 
 #PBS -q normalbw
 #PBS -P v45
-# #PBS -l ncpus=140
-#PBS -l ncpus=168
-#PBS -l mem=1530Gb
-# #PBS -l mem=450Gb
+# #PBS -l ncpus=23
+#PBS -l ncpus=252
+#PBS -l mem=2300Gb
+# #PBS -l mem=650Gb
+# #PBS -l mem=200Gb
 #PBS -l walltime=48:00:00
 #PBS -N Eeddy_model
 # #PBS -N Eeddy_sat
@@ -23,13 +24,16 @@
 
 #dataorigin='satellite'
 #ini=1993
-#end=2016
+#end=2015
+
+#ini=2015
+#end=2018
 
 dataorigin='model'
-#ini=1
-#end=56
-ini=57
-end=112
+ini=1
+end=84
+#ini=57
+#end=112
 file_div=3
 
 module load pbs
@@ -39,7 +43,7 @@ module load cmstools
 module use /g/data3/hh5/public/modules
 module load conda/analysis3
 
-cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/satellite_model/trackeddy_analysis"
+cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/satellite_model/trackeddy_analysis/"
 
 cd $cdir
 

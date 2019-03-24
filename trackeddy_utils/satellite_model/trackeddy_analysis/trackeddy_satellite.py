@@ -9,7 +9,6 @@ import cmocean as cm
 from trackeddy.tracking import *
 from trackeddy.datastruct import *
 from trackeddy.geometryfunc import *
-from trackeddy.init import *
 from trackeddy.physics import *
 from trackeddy.plotfunc import *
 from numpy import *
@@ -60,17 +59,17 @@ print('End loading data')
 areamap=array([[0,len(lon)],[0,len(lat)]])
 
 filters = {'time':{'type':None,'t':None,'t0':None,'value':None},
-           'spatial':{'type':'moving','window':50,'mode':'uniform'}}
+           'spatial':{'type':'moving','window':51,'mode':'uniform'}}
 levels = {'max':sshatime.max(),'min':0.01,'step':0.01}
 
 eddytd=analyseddyzt(sshatime,lon,lat,0,shape(sshatime)[0],1,levels,areamap=areamap,mask=''\
                      ,filters=filters,destdir='',physics='',diagnostics=False,pprint=False)
 print("Saving Positive")
-save(outfile+year+str(monthsin)+'-'+str(monthsend)+'_pos_satellite.npy',eddytd)
+save(outfile+"aviso_"+year+'-'+str(monthsin)+'-'+str(monthsend)+'_pos_satellite.npy',eddytd)
 
 levels = {'max':-sshatime.min(),'min':0.01,'step':0.01}
 
 eddytdn=analyseddyzt(-sshatime,lon,lat,0,shape(sshatime)[0],1,levels,areamap=areamap,mask=''\
                      ,filters=filters,destdir='',physics='',diagnostics=False,pprint=True)
 print("Saving Negative")
-save(outfile+year+str(monthsin)+'-'+str(monthsend)+'_neg_satellite.npy',eddytdn)
+save(outfile+"aviso_"+year+'-'+str(monthsin)+'-'+str(monthsend)+'_neg_satellite.npy',eddytdn)

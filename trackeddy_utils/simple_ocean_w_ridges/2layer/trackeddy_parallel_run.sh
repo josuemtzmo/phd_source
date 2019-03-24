@@ -1,11 +1,10 @@
 #!/bin/bash
-#PBS -q normalbw
-#PBS -P v45
+#PBS -q expressbw
+#PBS -P x77
 #PBS -l ncpus=28
-#PBS -l mem=256Gb
-#PBS -l walltime=48:00:00
+#PBS -l mem=100Gb
+#PBS -l walltime=24:00:00
 #PBS -N 2L_TEddy
-
 
 ini=127
 end=154

@@ -8,7 +8,6 @@ import cmocean as cm
 from trackeddy.tracking import *
 from trackeddy.datastruct import *
 from trackeddy.geometryfunc import *
-from trackeddy.init import *
 from trackeddy.physics import *
 #from trackeddy.plotfunc import *
 from numpy import *
@@ -108,3 +107,26 @@ for ii in range(0,len(expts)):
 
    filename=outfolder+'satellite_u_residual_'+year+'_'+str(monthsin)+'_'+str(monthsend)+expts[ii]+'.nc'
    vargeonc(filename,lat,lon,sat_u-u_eddy,shape(sat_u-u_eddy)[0],'u_res',init_time,nc_description='Residual Geostrophic velocity Aviso+ - reconstructed field (Trackeddy).',units='m/s',dt='',dim='2D')
+
+# Cross terms
+outputfile=outfolder+'satellite_reconstructed_field_'+year+'_'+str(monthsin)+'_'+str(monthsend)+'.nc'
+ncfile=Dataset(outputfile)
+reconstruct=ncfile.variables['SSHa_reconstruct'][:]
+
+outputfile=outfolder+'satellite_reconstructed_field_'+year+'_'+str(monthsin)+'_'+str(monthsend)+'_diff.nc'
+ncfile=Dataset(outputfile)
+reconstruct_diff=ncfile.variables['SSHa_reconstruct'][:]
+
+lon=ncfile.variables['lon'][:]
+lat=ncfile.variables['lat'][:]
+
+cross_EKE=np.zeros(np.shape(reconstruct))
+
+for tt in range(0,np.shape(reconstruct)[0]):
+    u_eddy[tt,:,:],v_eddy[tt,:,:]=geovelfield(reconstruct[tt,:,:],lon,lat,mask,5)
+    u_diff[tt,:,:],v_diff[tt,:,:]=geovelfield(reconstruct_diff[tt,:,:],lon,lat,mask,5)
+    cross_EKE[t,:,:]= 2*((u_eddy*u_diff)+(v_eddy*v_diff))
+
+filename=outfolder+'satellite_TEKE_cross_'+year+'_'+str(monthsin)+'_'+str(monthsend)+expts[ii]+'.nc'
+vargeonc(filename,lat,lon,cross_EKE,shape(cross_EKE)[0],'TEKE_c',init_time,nc_description='EKE_eddy using the geostrophic velocity form the reconstructed field (Trackeddy).',units='cm2/s2',dt='',dim='2D')
+

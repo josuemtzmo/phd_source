@@ -15,14 +15,14 @@ do
    if [ "$timeinit" == "0" ];
    then
       counter=$((i))
-      echo "${python_path} ${cdir}trackeddy.py $((i))" > $cdir$rundir/config.$(printf %05d ${counter%})
+      echo "${python_path} ${cdir}trackeddy_run.py $((i))" > $cdir$rundir/config.$(printf %05d ${counter%})
       echo "Running at core $counter.  File: config."$(printf %05d ${counter%})
-      /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%})
+      /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &
    else
       core_diff=$((timeinit))
       counter=$((i))
-      echo "${python_path} ${cdir}trackeddy.py $((i))" > $cdir$rundir/config.$(printf %05d ${counter%})
-      echo "Running at core $((counter)).  File: config."$(printf %05d ${counter%})
-      /opt/pbs/default/bin/pbsdsh -v -n $((counter-core_diff))  -- bash $cdir$rundir/config.$(printf %05d ${counter%})
+      echo "${python_path} ${cdir}trackeddy_run.py $((i))" > $cdir$rundir/config.$(printf %05d ${counter%})
+      echo "Running at core $((counter-core_diff)).  File: config."$(printf %05d ${counter%})
+      /opt/pbs/default/bin/pbsdsh -v -n $((counter-core_diff))  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) 
    fi
 done

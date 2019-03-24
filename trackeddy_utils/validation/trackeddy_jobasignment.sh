@@ -15,7 +15,7 @@ for j in `seq $timeinit $timestepdiv $timeend`;
 do
     echo "${python_path} ${cdir}so_synthetic.py $j" > $cdir$rundir/config.$(printf %05d ${counter%})
     echo "Running at core $counter.  File: config."$(printf %05d ${counter%})
-    /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%})
+    /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &
     counter=$(( $counter + 1))
 done
 wait

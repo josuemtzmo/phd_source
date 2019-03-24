@@ -8,7 +8,6 @@ import cmocean as cm
 from trackeddy.tracking import *
 from trackeddy.datastruct import *
 from trackeddy.geometryfunc import *
-from trackeddy.init import *
 from trackeddy.physics import *
 from trackeddy.plotfunc import *
 from numpy import *
@@ -45,7 +44,10 @@ print('Start loading data')
 for month in range(monthsin,monthsend):
     daysmonth=monthrange(int(year), month)[1]
     for days in range(1,daysmonth+1):
-        ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
+        try:
+           ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180115.nc')
+        except:
+           ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20180516.nc')
         #ncfile=Dataset(inputfiles+'dt_global_allsat_phy_l4_'+year+'%02d'%month+'%02d'%days+'_20170110.nc')
         sshatime[ii,:,:]=squeeze(ncfile.variables['sla'][:])
         ii=ii+1
@@ -57,7 +59,7 @@ sshashape=np.shape(sshatime)
 
 # Output data path
 try:
-   analysedatap=np.load(outfolder+'npy/'+year+str(monthsin)+'-'+str(monthsend)+'_pos_satellite.npy')
+   analysedatap=np.load(outfolder+'npy/aviso_'+year+'-'+str(monthsin)+'-'+str(monthsend)+'_pos.npy')
    dictanalysep=analysedatap.item()
    reconstruct_p=reconstruct_syntetic(sshashape,lon,lat,dictanalysep)
    reconstruct_p=ma.array(reconstruct_p,mask=sshatime.mask)
@@ -67,7 +69,7 @@ except:
    pass
 
 try:
-   analysedatan=np.load(outfolder+'npy/'+year+str(monthsin)+'-'+str(monthsend)+'_neg_satellite.npy')
+   analysedatan=np.load(outfolder+'npy/aviso_'+year+'-'+str(monthsin)+'-'+str(monthsend)+'_neg.npy')
    dictanalysen=analysedatan.item()
    reconstruct_n=-reconstruct_syntetic(sshashape,lon,lat,dictanalysen)
    reconstruct_n=ma.array(reconstruct_n,mask=sshatime.mask)

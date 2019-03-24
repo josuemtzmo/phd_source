@@ -9,7 +9,7 @@ timeend=$3
 rundir=$4
 counter=0
 months=(1 3 5 7 9 11 13)
-cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/satellite_model/reconstruct_field"
+cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/satellite_model/reconstruct_field/"
 python_path="/g/data/v45/jm5970/env/track_env/bin/python"
 
 if [ "$dataorigin" == "model" ] || [ "$dataorigin" == "satellite" ];

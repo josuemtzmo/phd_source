@@ -7,16 +7,14 @@
 #  ncp=$((($end-$ini)*4))
 #fi
 
-#PBS -q normalbw
+#PBS -q express
 #PBS -P x77
-#PBS -l ncpus=112
-#PBS -l mem=300Gb
-#PBS -l walltime=48:00:00
-#PBS -N TEddy_validation
+#PBS -l ncpus=16
+#PBS -l mem=100Gb
+#PBS -l walltime=24:00:00
+#PBS -N chelt2teddy
 
-ini=0
-end=1120
-file_div=10
+file_div=16
 
 module load pbs
 module load netcdf/4.3.3.1
@@ -25,8 +23,8 @@ module load cmstools
 module use /g/data3/hh5/public/modules
 module load conda/analysis3
 
-cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/validation/"
+cdir="/home/156/jm5970/github/phd_source/trackeddy_utils/chelton2py/"
 
 cd $cdir 
 
-./trackeddy_jobasignment.sh $ini $end 'run_validation' $file_div
+./jobasignment.sh $file_div 'run'

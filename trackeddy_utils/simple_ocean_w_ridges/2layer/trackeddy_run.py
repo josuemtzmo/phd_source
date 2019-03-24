@@ -8,12 +8,12 @@ import cmocean as cm
 from trackeddy.tracking import *
 from trackeddy.datastruct import *
 from trackeddy.geometryfunc import *
-from trackeddy.init import *
 from trackeddy.physics import *
 from trackeddy.plotfunc import *
 from numpy import *
 
 outputfilenumber =int(sys.argv[1])
+init=127
 end=154
 
 outfile='/g/data/v45/jm5970/trackeddy_output/simple_ocean_w_ridges/2layer/npy/'
@@ -33,7 +33,7 @@ lon=ncfile.variables['xh'][:]
 lat=ncfile.variables['yh'][:]
 
 # Import SSH 10 yrs mean values to python environment.
-ncfile=Dataset('/g/data/v45/jm5970/trackeddy_output/simple_ocean_w_ridges/2layer/pre-processing/mean_ssh_{0:03}_{0:03}.nc'.format(outputfilenumber,end))
+ncfile=Dataset('/g/data/v45/jm5970/trackeddy_output/simple_ocean_w_ridges/2layer/pre-processing/mean_ssh_{0:03}_{1:03}.nc'.format(init,end))
 ssh_mean=squeeze(ncfile.variables['e'][0,:,:])
 
 # Import geographic coordinates (Lon,Lat)
@@ -43,18 +43,19 @@ ssh_mean=squeeze(ncfile.variables['e'][0,:,:])
 areamap=array([[0,len(lon)],[0,len(lat)]])
 
 filters = {'time':{'type':'historical','t':None,'t0':None,'value':ssh_mean},
-           'spatial':{'type':'moving','window':120,'mode':'uniform'}}
+           'spatial':{'type':None,'window':None,'mode':None}}
 
 preferences={'ellipse':0.70,'eccentricity':0.95,'gaussian':0.7}
+areaparm={'constant':np.inf}
 
-levels = {'max':eta.max(),'min':0.01,'step':0.01}
+levels = {'max':eta.max(),'min':0.005,'step':0.005}
 eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,levels,areamap=areamap,mask='',maskopt='forcefit'\
-                    ,preferences=preferences,filters=filters,destdir='',physics='',diagnostics=False,pprint=True)
-print("Saving Positive",file_count)
-save(outfile+'2layer_%05d_pos.npy' % file_count,eddytd)
+                    ,preferences=preferences,filters=filters,areaparms=areaparm,destdir='',physics='',diagnostics=False,pprint=True)
+print("Saving Positive",outputfilenumber)
+save(outfile+'2layer_%05d_pos.npy' % outputfilenumber,eddytd)
 
-levels = {'max':-eta.min(),'min':0.01,'step':0.01}
+levels = {'max':-eta.min(),'min':0.005,'step':0.005}
 eddytdn=analyseddyzt(-eta,lon,lat,0,shape(eta)[0],1,levels,areamap=areamap,mask='',maskopt='forcefit'\
-                     ,filters=filters,destdir='',physics='',diagnostics=False,pprint=False)
-print("Saving Negative")
-save(outfile+'2layer_%05d_neg.npy' % file_count,eddytdn)
+                     ,preferences=preferences,filters=filters,areaparms=areaparm,destdir='',physics='',diagnostics=False,pprint=False)
+print("Saving Negative",outputfilenumber)
+save(outfile+'2layer_%05d_neg.npy' % outputfilenumber,eddytdn)

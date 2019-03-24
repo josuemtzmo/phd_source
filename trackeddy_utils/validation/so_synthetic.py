@@ -3,8 +3,9 @@ tic=time.time()
 import matplotlib
 matplotlib.use('Agg')
 import trackeddy.tracking as ttrack
-from trackeddy.geometryfunc import *
 from trackeddy.savedata import *
+from trackeddy.geometryfunc import *
+from trackeddy.physics import *
 from pylab import *
 import random
 import pdb
@@ -14,16 +15,13 @@ import matplotlib.gridspec as gridspec
 
 import trackeddy.utils.field_generator as fg
 
-import importlib
-importlib.reload(ttrack)
-
-init_time=sys.argv[1]
+init_time=int(sys.argv[1])
 
 outfolder='/g/data/v45/jm5970/trackeddy_output/validation/'
 t  = 10
 
-xx = linspace(0,360,3600)
-yy = linspace(-90,90,3600)
+x = linspace(0,360,3600)
+y = linspace(-90,90,3600)
 
 # print("Generate field")
 # gf=fg.Generate_field(0.7,0.7,n,xx,yy,'Nint')
@@ -31,14 +29,14 @@ yy = linspace(-90,90,3600)
 
 data = zeros((t,3600,3600))
 for tt in range(t):
-    nn=randint(700, 1200)
+    nn=randint(700, 1000)
     print("t ="+str(tt)+" n ="+str(nn))
-    gf=fg.Generate_field(0.5,0.5,nn,xx,yy,'Nint')
+    gf=fg.Generate_field(0.5,0.5,nn,x,y,'Nint')
     data[tt,:,:] = gf.assemble_field(1,margin=0)
 
 
 filename=outfolder+'output/validation_field_'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,data,shape(data)[0],'ssha',init_time,nc_description='Trackeddy Validation Field.',units='m',dt='',dim='2D')
+vargeonc(filename,y,x,data,shape(data)[0],'ssha',init_time*t,nc_description='Trackeddy Validation Field.',units='m',dt='',dim='2D')
 
 ################################################################################
 ################################################################################
@@ -54,7 +52,7 @@ t0 = 0
 t  = 1
 
 levels = {'max':data.max(),'min':0.05,'step':0.05}
-eddytd = trackeddy.tracking.analyseddyzt(data,x,y,t0,t,1,levels,\
+eddytd = ttrack.analyseddyzt(data,x,y,t0,t,1,levels,\
     preferences=preferences,areamap='',mask='',maskopt='forcefit',\
     destdir='',physics='',diagnostics=False,plotdata=False,pprint=True,\
     debug=False)
@@ -62,7 +60,7 @@ eddytd = trackeddy.tracking.analyseddyzt(data,x,y,t0,t,1,levels,\
 ####
 
 levels  = {'max':data.min(),'min':-0.05,'step':-0.05}
-eddytdn = trackeddy.tracking.analyseddyzt(data,x,y,t0,t,1,levels,\
+eddytdn = ttrack.analyseddyzt(data,x,y,t0,t,1,levels,\
     preferences=preferences,areamap='',mask='',maskopt='forcefit',\
     destdir='',physics='',diagnostics=False,plotdata=False,pprint=True,\
     debug=False)
@@ -73,7 +71,7 @@ neg_f = reconstruct_syntetic(shape(data),x,y,eddytdn)
 f_field = pos_f+neg_f
 
 filename=outfolder+'output/validation_field_reconstruct_'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,f_field,shape(f_field)[0],'ssh',init_time,nc_description='Trackeddy Validation Field.',units='m',dt='',dim='2D')
+vargeonc(filename,y,x,f_field,shape(f_field)[0],'ssh',init_time*t,nc_description='Trackeddy Validation Field.',units='m',dt='',dim='2D')
 
 ################################################################################
 #################################### WAVE ######################################
@@ -92,21 +90,21 @@ for t in range(0,t):
 
 wave_data = waves+data
 
-levels = {'max':data.max(),'min':0.05,'step':0.05}
-eddytd=ttrack.analyseddyzt(data,x,y,0,t,1,levels,preferences=preferences,areamap='',mask='',maskopt='forcefit'\
+levels = {'max':wave_data.max(),'min':0.05,'step':0.05}
+eddytd=ttrack.analyseddyzt(wave_data,x,y,0,t,1,levels,preferences=preferences,areamap='',mask='',maskopt='forcefit'\
                     ,destdir='',physics='',diagnostics=False,plotdata=False,pprint=True)
 
-levels = {'max':data.min(),'min':-0.05,'step':-0.05}
-eddytdn=ttrack.analyseddyzt(data,x,y,0,t,1,levels,preferences=preferences,areamap='',mask='',maskopt='forcefit'\
+levels = {'max':wave_data.min(),'min':-0.05,'step':-0.05}
+eddytdn=ttrack.analyseddyzt(wave_data,x,y,0,t,1,levels,preferences=preferences,areamap='',mask='',maskopt='forcefit'\
                     ,destdir='',physics='',diagnostics=False,plotdata=False,pprint=True)
 
-pos_w = reconstruct_syntetic(shape(data),x,y,eddytd)
-neg_w = reconstruct_syntetic(shape(data),x,y,eddytdn)
+pos_w = reconstruct_syntetic(shape(wave_data),x,y,eddytd)
+neg_w = reconstruct_syntetic(shape(wave_data),x,y,eddytdn)
 
 w_field = pos_w+neg_w
 
 filename=outfolder+'output/validation_field_wave_'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,w_field,shape(w_field)[0],'ssh',init_time,nc_description='Trackeddy Validation Field.',units='m',dt='',dim='2D')
+vargeonc(filename,y,x,w_field,shape(w_field)[0],'ssh',init_time*t,nc_description='Trackeddy Validation Field.',units='m',dt='',dim='2D')
 
 ################################################################################
 ################################################################################
@@ -127,21 +125,21 @@ for t in range(0,t):
     jets[t,:,:] = amp*cos((k_y*(k_y*Y+phase+sin(k_x*X-t))))
 jet_data = jets+data
 
-levels = {'max':data.max(),'min':0.05,'step':0.05}
-eddytd=ttrack.analyseddyzt(data,x,y,0,t,1,levels,preferences=preferences,areamap='',mask='',maskopt='forcefit'\
+levels = {'max':jet_data.max(),'min':0.05,'step':0.05}
+eddytd=ttrack.analyseddyzt(jet_data,x,y,0,t,1,levels,preferences=preferences,areamap='',mask='',maskopt='forcefit'\
                     ,destdir='',physics='',diagnostics=False,plotdata=False,pprint=True)
 
-levels = {'max':data.min(),'min':-0.05,'step':-0.05}
-eddytdn=ttrack.analyseddyzt(data,x,y,0,t,1,levels,preferences=preferences,areamap='',mask='',maskopt='forcefit'\
+levels = {'max':jet_data.min(),'min':-0.05,'step':-0.05}
+eddytdn=ttrack.analyseddyzt(jet_data,x,y,0,t,1,levels,preferences=preferences,areamap='',mask='',maskopt='forcefit'\
                     ,destdir='',physics='',diagnostics=False,plotdata=False,pprint=True)
 
-pos_f = reconstruct_syntetic(shape(data),x,y,eddytd)
-neg_f = reconstruct_syntetic(shape(data),x,y,eddytdn)
+pos_f = reconstruct_syntetic(shape(jet_data),x,y,eddytd)
+neg_f = reconstruct_syntetic(shape(jet_data),x,y,eddytdn)
 
 j_field = pos_f+neg_f
 
 filename=outfolder+'output/validation_field_jet_'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,j_field,shape(j_field)[0],'ssh',init_time,nc_description='Trackeddy Validation Field.',units='m',dt='',dim='2D')
+vargeonc(filename,y,x,j_field,shape(j_field)[0],'ssh',init_time*t,nc_description='Trackeddy Validation Field.',units='m',dt='',dim='2D')
 
 ################################################################################
 ################################################################################
@@ -170,37 +168,37 @@ for tt in range(shape(data)[0]):
 
 
 filename=outfolder+'output/u_c'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,u_c,shape(j_field)[0],'u',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+vargeonc(filename,y,x,u_c,shape(j_field)[0],'u',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
 filename=outfolder+'output/v_c'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,v_c,shape(j_field)[0],'v',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+vargeonc(filename,y,x,v_c,shape(j_field)[0],'v',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
 
 
 filename=outfolder+'output/u_f'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,u_f,shape(j_field)[0],'u',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+vargeonc(filename,y,x,u_f,shape(j_field)[0],'u',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
 filename=outfolder+'output/v_f'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,v_f,shape(j_field)[0],'v',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+vargeonc(filename,y,x,v_f,shape(j_field)[0],'v',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
 
 
 filename=outfolder+'output/u_w'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,u_w,shape(j_field)[0],'u',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+vargeonc(filename,y,x,u_w,shape(j_field)[0],'u',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
 filename=outfolder+'output/v_w'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,v_w,shape(j_field)[0],'v',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+vargeonc(filename,y,x,v_w,shape(j_field)[0],'v',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
 
 
 filename=outfolder+'output/u_j'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,u_j,shape(j_field)[0],'u',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+vargeonc(filename,y,x,u_j,shape(j_field)[0],'u',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
 filename=outfolder+'output/v_j'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,v_j,shape(j_field)[0],'v',init_time,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
+vargeonc(filename,y,x,v_j,shape(j_field)[0],'v',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m/s',dt='',dim='2D')
 
 
 filename=outfolder+'output/ke_c'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,ke_c,shape(j_field)[0],'teke',init_time,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
+vargeonc(filename,y,x,ke_c,shape(j_field)[0],'teke',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
 filename=outfolder+'output/ke_f'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,ke_f,shape(j_field)[0],'teke',init_time,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
+vargeonc(filename,y,x,ke_f,shape(j_field)[0],'teke',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
 filename=outfolder+'output/ke_w'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,ke_w,shape(j_field)[0],'teke',init_time,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
+vargeonc(filename,y,x,ke_w,shape(j_field)[0],'teke',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
 filename=outfolder+'output/Ke_j'+str(init_time)+'.nc'
-vargeonc(filename,yy,xx,ke_j,shape(j_field)[0],'teke',init_time,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
+vargeonc(filename,y,x,ke_j,shape(j_field)[0],'teke',init_time*t,nc_description='Trackeddy Validation Field velocity.',units='m2/s2',dt='',dim='2D')
 
 ################################################################################
 ################################################################################

@@ -8,7 +8,6 @@ import cmocean as cm
 from trackeddy.tracking import *
 from trackeddy.datastruct import *
 from trackeddy.geometryfunc import *
-from trackeddy.init import *
 from trackeddy.physics import *
 from trackeddy.plotfunc import *
 from numpy import *
@@ -49,7 +48,7 @@ ssh_mean=squeeze(ncfile.variables['eta_t'][:])
 areamap=array([[0,len(lon)],[0,len(lat)]])
 
 filters = {'time':{'type':'historical','t':None,'t0':None,'value':ssh_mean},
-           'spatial':{'type':'moving','window':120,'mode':'uniform'}}
+           'spatial':{'type':'moving','window':121,'mode':'uniform'}}
 
 preferences={'ellipse':0.70,'eccentricity':0.95,'gaussian':0.7}
 

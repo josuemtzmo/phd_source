@@ -1,14 +1,14 @@
 #!/bin/bash
-#PBS -q expressbw
+#PBS -q express
 #PBS -P v45
-#PBS -l ncpus=140
+#PBS -l ncpus=160
 #PBS -l mem=520Gb
 #PBS -l walltime=24:00:00
 #PBS -N EKEeddy
 
 dataorigin='satellite'
 ini=1993
-end=2016
+end=2017
 
 #dataorigin='model'
 #ini=306

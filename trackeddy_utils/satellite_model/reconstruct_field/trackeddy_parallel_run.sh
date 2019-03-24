@@ -1,15 +1,15 @@
 #!/bin/bash
 
-#PBS -q expressbw
+#PBS -q express
 #PBS -P v45
-#PBS -l ncpus=140
-#PBS -l mem=350Gb
+#PBS -l ncpus=160
+#PBS -l mem=450Gb
 #PBS -l walltime=20:00:00
 #PBS -N Reddy
 
 dataorigin='satellite'
 ini=1993
-end=2016
+end=2017
 
 #dataorigin='model'
 #ini=306
