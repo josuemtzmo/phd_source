@@ -9,10 +9,10 @@
 
 #PBS -q normalbw
 #PBS -P v45
-# #PBS -l ncpus=23
+# #PBS -l ncpus=84
 #PBS -l ncpus=252
 #PBS -l mem=2300Gb
-# #PBS -l mem=650Gb
+# #PBS -l mem=750Gb
 # #PBS -l mem=200Gb
 #PBS -l walltime=48:00:00
 #PBS -N Eeddy_model
@@ -32,8 +32,10 @@
 dataorigin='model'
 ini=1
 end=84
-#ini=57
-#end=112
+#ini=85
+#end=168
+#ini=169
+#end=197
 file_div=3
 
 module load pbs

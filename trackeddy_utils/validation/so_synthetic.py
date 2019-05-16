@@ -18,7 +18,7 @@ import trackeddy.utils.field_generator as fg
 init_time=int(sys.argv[1])
 
 outfolder='/g/data/v45/jm5970/trackeddy_output/validation/'
-t  = 10
+t  = 1
 
 x = linspace(0,360,3600)
 y = linspace(-90,90,3600)

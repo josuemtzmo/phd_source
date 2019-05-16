@@ -33,7 +33,7 @@ then
            core_diff=$(((timeinit*file_divisions)))
            counter=$(( i*(file_divisions) + j))
            echo "${python_path} ${cdir}trackeddy_$dataorigin.py $((i+1)) $j $file_divisions $counter" > $cdir$rundir/config.$(printf %05d ${counter%})
-           echo "Running at core $((counter)).  File: config."$(printf %05d ${counter%})
+           echo "Running at core $((counter-core_diff)).  File: config."$(printf %05d ${counter%})
            /opt/pbs/default/bin/pbsdsh -v -n $((counter-core_diff))  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &
         fi
       done

@@ -23,6 +23,7 @@ do
       counter=$((i))
       echo "${python_path} ${cdir}trackeddy_run.py $((i))" > $cdir$rundir/config.$(printf %05d ${counter%})
       echo "Running at core $((counter-core_diff)).  File: config."$(printf %05d ${counter%})
-      /opt/pbs/default/bin/pbsdsh -v -n $((counter-core_diff))  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) 
+      /opt/pbs/default/bin/pbsdsh -v -n $((counter-core_diff))  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &
    fi
 done
+wait

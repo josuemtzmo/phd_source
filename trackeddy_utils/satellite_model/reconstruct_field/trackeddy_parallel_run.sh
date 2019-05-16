@@ -3,17 +3,18 @@
 #PBS -q express
 #PBS -P v45
 #PBS -l ncpus=160
-#PBS -l mem=450Gb
-#PBS -l walltime=20:00:00
-#PBS -N Reddy
+# #PBS -l mem=450Gb
+#PBS -l mem=1280Gb
+#PBS -l walltime=24:00:00
+#PBS -N Reddy_M
 
-dataorigin='satellite'
-ini=1993
-end=2017
+#dataorigin='satellite'
+#ini=1993
+#end=2017
 
 #dataorigin='model'
-#ini=306
-#end=334
+#ini=0
+#end=160
 
 module use /g/data3/hh5/public/modules
 module load conda/analysis3

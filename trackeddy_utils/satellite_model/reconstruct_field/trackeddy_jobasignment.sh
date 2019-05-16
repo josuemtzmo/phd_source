@@ -18,9 +18,10 @@ then
   then
     for i in `seq $timeinit $timeend`;
     do
-      echo "${python_path} ${cdir}reconstruct_$dataorigin.py $i" > $cdir$rundir/config.$((i-timeinit))
-      echo "Running at $((i-timeinit)).  File: $cdir$rundir/config.$((i-timeinit))"
-      /opt/pbs/default/bin/pbsdsh -v -n $((i-timeinit))*2  -- bash $cdir$rundir/config.$((i-timeinit)) > $cdir$rundir/nohup.$((i-timeinit)) &
+      counter=$((i-timeinit))
+      echo "${python_path} ${cdir}reconstruct_$dataorigin.py $i" > $cdir$rundir/config.$(printf %05d ${counter%})
+      echo "Running at $((i-timeinit)).  File: $cdir$rundir/config.$(printf %05d ${counter%})"
+      /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &
     done
     wait
   else
@@ -30,7 +31,7 @@ then
       do
         echo "${python_path} ${cdir}reconstruct_$dataorigin.py $i ${months[$m]} ${months[$(($m+1))]} " > $cdir$rundir/config.$counter
         echo "Running year $((i)).  File: $cdir$rundir/config.$counter"
-        /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$counter > $cdir$rundir/nohup.$counter &
+        /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$counter &
         counter=$(( $counter + 1 ))
       done
     done

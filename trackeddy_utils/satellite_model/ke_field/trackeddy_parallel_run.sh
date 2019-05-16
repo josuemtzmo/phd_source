@@ -2,8 +2,8 @@
 #PBS -q express
 #PBS -P v45
 #PBS -l ncpus=160
-#PBS -l mem=520Gb
-#PBS -l walltime=24:00:00
+#PBS -l mem=1000Gb
+#PBS -l walltime=3:00:00
 #PBS -N EKEeddy
 
 dataorigin='satellite'
