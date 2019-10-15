@@ -9,7 +9,8 @@ s_ensemble=$2
 e_ensemble=$3
 
 timeinit=1995
-timeend=2015
+timeend=1997
+#timeend=2015
 
 rundir=$4
 
@@ -31,15 +32,19 @@ for i in `seq $s_ensemble $e_ensemble`;
         then
           echo $year $(((timeend-timeinit+1)*file_divisions))
           counter=$(( (i*(timeend-timeinit+1)*(file_divisions))+(year-timeinit)*(file_divisions) + j - (timeend-timeinit+1)*(file_divisions)))
-          echo "${python_path} ${cdir}trackeddy_$dataorigin.py $i $year $file_divisions $j $counter" > $cdir$rundir/config.$(printf %05d ${counter%})
+          file_number=$(((year-timeinit)*(file_divisions)+j))
+          echo "${python_path} ${cdir}trackeddy_$dataorigin.py $i $year $file_divisions $j $file_number" > $cdir$rundir/config.$(printf %05d ${counter%})
           echo "Running at core $counter.  File: config."$(printf %05d ${counter%})
           /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &
         else
           echo $year
-          counter=$(( (i*(timeend-timeinit+1)*(file_divisions))+(year-timeinit)*(file_divisions) + j - (timeend-timeinit+1)*(file_divisions)))
-          echo "${python_path} ${cdir}trackeddy_$dataorigin.py $i $year $file_divisions $j $counter" > $cdir$rundir/config.$(printf %05d ${counter%})
-          echo "Running at core $((counter-core_diff)).  File: config."$(printf %05d ${counter%})
-          /opt/pbs/default/bin/pbsdsh -v -n $((counter-core_diff))  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &
+          counter=$(((i*(timeend-timeinit+1)*(file_divisions))+(year-timeinit)*(file_divisions) + j - (timeend-timeinit+1)*(file_divisions)))
+          core_diff=$(((s_ensemble*(timeend-timeinit+1)*(file_divisions))-(timeend-timeinit+1)*(file_divisions)))
+          file_number=$(((year-timeinit)*(file_divisions)+j))
+          core_count=$((counter-core_diff))
+          echo "${python_path} ${cdir}trackeddy_$dataorigin.py $i $year $file_divisions $j $file_number" > $cdir$rundir/config.$(printf %05d ${core_count%})
+          echo "Running at core $core_count. File: config."$(printf %05d ${core_count%})
+          /opt/pbs/default/bin/pbsdsh -v -n $core_count  -- bash $cdir$rundir/config.$(printf %05d ${core_count%}) &
         fi
     done
   done

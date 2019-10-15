@@ -53,7 +53,7 @@ filters = {'time':{'type':'historical','t':None,'t0':None,'value':ssh_mean},
 preferences={'ellipse':0.7,'eccentricity':0.95,'gaussian':0.7}
 
 levels = {'max':eta.max(),'min':0.01,'step':0.01}
-eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,levels,areamap=areamap,mask='',maskopt='forcefit'\
+eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,levels,areamap=areamap,mask='',maskopt='forcefit',timeanalysis='none'\
                     ,preferences=preferences,filters=filters,destdir='',physics='',diagnostics=False,pprint=True)
 print("Saving Positive",file_count)
 
@@ -62,7 +62,7 @@ eddysplot=reconstruct_syntetic(shape(eta),lon,lat,eddytd)
 save(outfile+'ACCESS_025_%05d_pos.npy' % file_count,eddytd)
 
 levels = {'max':-eta.min(),'min':0.01,'step':0.01}
-eddytdn=analyseddyzt(-eta,lon,lat,0,shape(eta)[0],1,levels,areamap=areamap,mask='',maskopt='forcefit'\
+eddytdn=analyseddyzt(-eta,lon,lat,0,shape(eta)[0],1,levels,areamap=areamap,mask='',maskopt='forcefit',timeanalysis='none'\
                      ,preferences=preferences,filters=filters,destdir='',physics='',diagnostics=False,pprint=False)
 print("Saving Negative")
 save(outfile+'ACCESS_025_%05d_neg.npy' % file_count,eddytdn)

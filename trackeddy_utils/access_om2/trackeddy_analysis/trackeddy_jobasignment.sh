@@ -27,7 +27,7 @@ do
       /opt/pbs/default/bin/pbsdsh -v -n $counter  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &
     else
       core_diff=$(((timeinit*file_divisions)))
-      counter=$(( i*(file_divisions) + j +1))
+      counter=$(( i*(file_divisions) + j -core_diff))
       echo "${python_path} ${cdir}trackeddy_$dataorigin.py $((i+1)) $j $file_divisions $counter" > $cdir$rundir/config.$(printf %05d ${counter%})
       echo "Running at core $counter.  File: config."$(printf %05d ${counter%})
       /opt/pbs/default/bin/pbsdsh -v -n $((counter))  -- bash $cdir$rundir/config.$(printf %05d ${counter%}) &

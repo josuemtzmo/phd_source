@@ -1,17 +1,19 @@
 #!/bin/bash
 
 #PBS -q normalbw
-#PBS -P v45
-#PBS -l ncpus=252
-#PBS -l mem=2300Gb
+#PBS -P x77
+# #PBS -l ncpus=168
+#PBS -l ncpus=56
+# #PBS -l mem=3036Gb
+#PBS -l mem=250Gb
 #PBS -l walltime=48:00:00
 #PBS -N OCCIPUT_E
 
 dataorigin='OCCIPUT'
 ini=1
-end=3
+end=1
 
-file_div=4
+file_div=18
 
 module load pbs
 module load netcdf/4.3.3.1

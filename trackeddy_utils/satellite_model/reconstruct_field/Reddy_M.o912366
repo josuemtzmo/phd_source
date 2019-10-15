@@ -1,0 +1,26 @@
+
+======================================================================================
+                  Resource Usage on 2019-08-03 17:59:30:
+   Job Id:             912366.r-man2
+   Project:            v45
+   Exit Status:        0
+   Service Units:      622.16
+   NCPUs Requested:    448                    NCPUs Used: 448             
+                                           CPU Time Used: 367:05:54                                  
+   Memory Requested:   1.95TB                Memory Used: 583.13GB        
+   Walltime requested: 24:00:00            Walltime Used: 00:55:33        
+   JobFS requested:    6.84GB                 JobFS used: 0B              
+======================================================================================
+
+======================================================================================
+                  Resource Usage on 2019-08-03 17:59:40:
+   Job Id:             912366.r-man2
+   Project:            v45
+   Exit Status:        0
+   Service Units:      622.16
+   NCPUs Requested:    448                    NCPUs Used: 448             
+                                           CPU Time Used: 367:05:54                                  
+   Memory Requested:   1.95TB                Memory Used: 583.13GB        
+   Walltime requested: 24:00:00            Walltime Used: 00:55:33        
+   JobFS requested:    6.84GB                 JobFS used: 0B              
+======================================================================================

@@ -1,17 +1,18 @@
 #!/bin/bash
 
-#PBS -q express
+#PBS -q normalsl
 #PBS -P v45
-#PBS -l ncpus=160
-# #PBS -l mem=450Gb
-#PBS -l mem=1280Gb
+#PBS -l ncpus=448
+#PBS -l mem=2000Gb
+# #PBS -l mem=1280Gb
 #PBS -l walltime=24:00:00
 #PBS -N Reddy_M
 
-#dataorigin='satellite'
-#ini=1993
-#end=2017
+dataorigin='satellite'
+ini=1993
+end=2017
 
+process=17
 #dataorigin='model'
 #ini=0
 #end=160
@@ -28,7 +29,7 @@ then
   ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_model'
 elif [ "$dataorigin" == "satellite" ];
 then
-  ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_satel'
+  ./trackeddy_jobasignment.sh $dataorigin $ini $end 'run_satel' $process
 else
   echo "First argument (dataorigin) should be 'model' or 'satellite'"
 fi

@@ -8,13 +8,13 @@
 #PBS -N Eeddy_model
 
 dataorigin='model'
-ini=0
+ini=120
 end=153
 #ini=85
 #end=168
 #ini=169
 #end=197
-file_div=1
+file_div=6
 
 module load pbs
 module load netcdf/4.3.3.1
