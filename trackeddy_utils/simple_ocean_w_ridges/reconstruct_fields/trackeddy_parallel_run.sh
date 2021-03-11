@@ -2,14 +2,14 @@
 
 #PBS -q expressbw
 #PBS -P v45
-#PBS -l ncpus=56
-#PBS -l mem=250Gb
+#PBS -l ncpus=28
+#PBS -l mem=100Gb
 #PBS -l walltime=24:00:00
 #PBS -N Reddy_M
 
-ini=16
-end=71
-expt='layer2_tau1e-0_manyshortridgesCorrectTopo'
+ini=22
+end=49
+expt='layer2_tau4e-0_manyshortridgesCorrectTopo'
 level=0
 
 module use /g/data3/hh5/public/modules

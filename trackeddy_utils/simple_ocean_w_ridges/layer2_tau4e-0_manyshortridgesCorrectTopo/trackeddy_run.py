@@ -23,7 +23,7 @@ layer=0
 outfile='/g/data/v45/jm5970/trackeddy_output/simple_ocean_w_ridges/{0}/npy/'.format(expt)
 
 # Output data path
-outputpath='/g/data/v45/nc3020/SOchanBcBtEddySat/layer2/{0}/output{1:03}/'.format(expt,outputfilenumber)
+outputpath='/g/data/v45/nc3020/EddySaturationBcBtSimulations_GRL2019/layer2/{0}/output{1:03}/'.format(expt,outputfilenumber)
 
 # Import SSH values to python environment.
 ncfile=Dataset(outputpath+'prog.nc')
@@ -54,7 +54,7 @@ areaparm={'constant':np.inf}
 
 levels = {'max':(eta-ssh_mean).max(),'min':0.001,'step':0.001}
 eddytd=analyseddyzt(eta,lon,lat,0,shape(eta)[0],1,levels,areamap=areamap,mask='',maskopt='forcefit',timeanalysis='none'\
-                    ,preferences=preferences,filters=filters,areaparms=areaparm,destdir='',physics='',diagnostics=False,pprint=True)
+                    ,preferences=preferences,filters=filters,areaparms=areaparm,destdir='',physics='',diagnostics=False,pprint=False)
 print("Saving Positive",outputfilenumber)
 save(outfile+'2layer_{0:05}_{1}_pos.npy'.format(outputfilenumber,layer),eddytd)
 

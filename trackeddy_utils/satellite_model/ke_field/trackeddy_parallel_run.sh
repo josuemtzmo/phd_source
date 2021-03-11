@@ -1,14 +1,17 @@
 #!/bin/bash
-#PBS -q normalsl
+#PBS -q normal
 #PBS -P v45
-#PBS -l ncpus=448
-#PBS -l mem=2000Gb
+##PBS -l ncpus=448
+#PBS -l ncpus=48
+#PBS -l storage=gdata/v45+gdata/hh5+gdata/ua8
+##PBS -l mem=2000Gb
+#PBS -l mem=192Gb
 #PBS -l walltime=6:00:00
 #PBS -N EKEeddy
 
 dataorigin='satellite'
-ini=1993
-end=2017
+ini=2018
+end=2019
 
 process=17
 #dataorigin='model'

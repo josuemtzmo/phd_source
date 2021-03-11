@@ -1,0 +1,2 @@
+/g/data/v45/jm5970/env/track_env/bin/python /home/156/jm5970/github/phd_source/trackeddy_utils/access_om2/trackeddy_analysis/trackeddy_model.py 190 8 14 64 /jobfs/13254587.gadi-pbs
+cp /jobfs/13254587.gadi-pbs/ACCESS_01_00190_08*.npy  /home/156/jm5970/scratch/trackeddy_output/
